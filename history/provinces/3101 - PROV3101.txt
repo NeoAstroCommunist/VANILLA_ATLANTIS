@@ -1,0 +1,5 @@
+owner = AT2
+add_core = AT2
+controller = AT2
+culture = finiqian
+religion = sunni

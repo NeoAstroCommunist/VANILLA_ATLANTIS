@@ -1,0 +1,5 @@
+owner = AT3
+add_core = AT3
+controller = AT3
+culture = thesrutian
+religion = sunni

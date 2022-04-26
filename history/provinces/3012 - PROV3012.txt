@@ -1,0 +1,5 @@
+owner = AT8
+add_core = AT8
+controller = AT8
+culture = athamanean
+religion = chalcedonism

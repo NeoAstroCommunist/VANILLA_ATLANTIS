@@ -1,0 +1,107 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 96 62 79 }
+
+historical_idea_groups = {
+	aristocracy_ideas
+	fortification_ideas
+	diplomacy_ideas
+}
+
+historical_units = { #Iberian Muslim group
+	muslim_armored_infantry
+	muslim_faris_cavalry
+	muslim_ghuzat_infantry
+	muslim_jinete_cavalry
+	muslim_rammaha_lancer_cavalry
+	muslim_elchee_infantry
+	muslim_arquebusier
+	muslim_qoorchilar_cavalry
+	muslim_reformed_qizilbash_cavalry
+	muslim_tofangchi_musketeer_infantry
+	muslim_jazayerchi_musketeer_infantry
+	muslim_zanbourak_camel_cavalry
+	muslim_piyadegan_infantry
+	muslim_savaran_saltani_cavalry
+	muslim_taifat_al_rusa_infantry
+	muslim_hunter_cavalry
+	muslim_drill_infantry
+	muslim_columnar_infantry
+	muslim_lancer_cavalry
+	muslim_breech_infantry
+}
+
+monarch_names = {
+	"Muhammad" = 10
+	"'Alî" = 1
+	"Ahmad" = 1
+	"Yahyâ" = 1
+	"Zkariyâ'" = 1
+	"'Abd al-'Aziz" = 1
+	"'Abd al-Mu'min" = 1
+	"Hamûda" = 1
+	"Husayn" = 1
+	"'Usman" = 1
+	"Salih" = 15
+	"Sulaiman" = 15
+	"Yunus" = 15
+	"Isma'îl" = 1
+	"Murad" = 1
+	"Yûsuf" = 1
+	"Abû Bakr" = 1
+	"Ala ad-Din" = 1
+	"Butrus" = 1
+	"Fakhri" = 1
+	"Fayiz" = 1
+	"Hadj" = 1
+	"Hafiz" = 1
+	"Harun" = 1
+	"Hasan" = 1
+	"Hashim" = 1
+	"Ibrahim" = 1
+	"Ja'far" = 1
+	"Khalil" = 1
+	"Mahir" = 1
+	"Mas'ud" = 1
+	"Mustafa" = 1
+	"Qadir" = 1
+	"Rasim" = 1
+	"Salah" = 1
+	"Shadi" = 1
+	"Tahir" = 1
+	"Torgud" = 1
+	
+	"Aida" = -1
+	"Zia" = -1
+	"Saleh" = -1
+	"Fatima" = -1
+	"Samira" = -1
+	"Aicha" = -1
+	"Chrifa" = -1
+	"Djihane" = -1
+	"Esra" = -1
+	"Leila" = -1
+	"Safia" = -1
+}
+
+leader_names = {
+	Taher
+	Akimi
+	Adhoum
+	Hakimi
+	Naybet
+	Bassir
+	Saber
+	Badra
+	Sassi
+	Dali
+}
+
+ship_names = {
+	Alim Fattah Razzaq Wahhab Qahhar Ghaffar
+	Musawwir Bari Khaliq Mutakabbir Jabbar
+	Aziz Muhaymin Mu'min Salam Quddus Malik
+	Rahim Rahman
+}

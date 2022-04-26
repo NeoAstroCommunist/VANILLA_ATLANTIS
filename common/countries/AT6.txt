@@ -1,0 +1,136 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 76 71 166 }
+
+historical_idea_groups = {
+	administrative_ideas
+	diplomacy_ideas
+	economic_ideas
+}
+
+historical_units = { #French group
+	western_halberd_infantry
+	western_knight_cavalry
+	unique_AT1_chariot
+	western_manatarms_infantry
+	western_runner_cavalry
+	western_lance_infantry
+	western_gendarme_cavalry
+	western_pikeandshot_infantry
+	western_earlytercio_infantry
+	western_caracole_cavalry
+	western_tercio_infantry
+	western_musketeersquare_infantry
+	western_dragoon_cavalry
+	western_countermarch_infantry
+	western_volley_infantry
+	unique_AT1_grapeshooters
+	western_line_infantry
+	western_carabinier_cavalry
+	western_drill_infantry
+	western_hunter_cavalry
+	unique_AT1_expedition_infantry
+	western_lancer_cavalry
+	western_jominian_infantry
+}
+
+monarch_names = {
+	"Simon" = 1
+	"Joseph" = 1
+	"Judah" = 1
+	"Eleazar" = 1
+	"Yohanan" = 1
+	"Joshua" = 1
+	"Hananiah" = 1
+	"Jonathan" = 1
+	"Mattathias" = 1
+	"Menahem" = 1
+	"Jacob" = 1
+	"Hanan" = 1
+	"Dositheus" = 1
+	"Zachariah" = 1
+	"Ishmael" = 1
+	"Levi" = 1
+	"Saul" = 1
+	"Onias" = 1
+	"Samuel" = 1
+	"Ezekiah" = 1
+	"Gadish" = 1
+	"Gani" = 1
+	"Hagai" = 1
+	"Hanilai" = 1
+	"Harsom" = 1
+	"Harqaq" = 1
+	"Maro" = 1
+	"Nathanel" = 1 
+	"Nathan" = 1
+	"Nebalta" = 1
+	"Nicandus" = 1
+	"Jason" = 1
+	"Jeremiah" = 1
+	"Kasaias"= 1
+	
+	"Hannah" = -1
+	"Mariam" = -1
+	"Salome" = -1
+	"Shelamzion" = -1
+	"Martha" = -1
+	"Joanna" = -1
+	"Shiphra" = -1
+	"Berenice" = -1
+	"Sarah" = -1
+	"Imma" = -1
+	"Hermione" = -1
+	"Helene" = -1
+	"Grapte" = -1
+	"Elisheba" = -1
+	"Esther" = -1
+	"Lysia" = -1
+	"Judith" = -1
+	"Julia" = -1
+	"Mara" = -1
+}
+
+leader_names = {
+	Hyrcanus
+	Iscariot
+	Laganiat
+	Braham
+	Gedide
+	Kohan
+	Yochanan
+	Maiman
+	Megiston
+	Likhluket
+	Marsyam
+    Neron
+	Nicoliat
+	Nisat
+	Nuri
+	Mahana
+	Manale
+	Josephus
+	Kalatha
+	Karkema
+}
+
+ship_names = {
+	Adonis Anath Asherah Astarte
+	Baal "Baal-Hammon" "Baalat Asclepius"
+	Kathirat Kothar
+	Melqarth Mot
+	Resheph
+	Shahar Shalim Shapash
+	Tanit
+	Yamm Yarikh
+}
+
+army_names = {
+	"Tsva Knaan"
+	"Tsva Meerev-Peynikya"
+	"Tsva Hishmadta Hadrorim"
+	"Tsva Haahava"
+	"Tsva Hakuna Matata"
+}

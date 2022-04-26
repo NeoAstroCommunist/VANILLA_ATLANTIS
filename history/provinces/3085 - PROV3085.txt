@@ -1,0 +1,6 @@
+owner = AT4
+add_core = AT4
+add_core = AT1
+controller = AT4
+culture = cartagean
+religion = chalcedonism

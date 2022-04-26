@@ -1,0 +1,11 @@
+
+AT1 = "countries/AT1.txt" # Qart Hadast
+AT2 = "countries/AT2.txt" # Finiqia
+AT3 = "countries/AT3.txt" # Thesrut
+AT4 = "countries/AT4.txt" # Barqaqart
+AT5 = "countries/AT5.txt" # Abubakri
+AT6 = "countries/AT6.txt" # Nomideyha
+AT7 = "countries/AT7.txt" # Parberia
+AT8 = "countries/AT8.txt" # Athamanea
+AT9 = "countries/AT9.txt" #
+

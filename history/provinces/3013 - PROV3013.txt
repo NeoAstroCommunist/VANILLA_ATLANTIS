@@ -1,0 +1,5 @@
+owner = AT9
+add_core = AT9
+controller = AT9
+culture = bassanian
+religion = chalcedonism

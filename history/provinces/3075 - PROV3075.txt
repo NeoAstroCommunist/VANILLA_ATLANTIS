@@ -1,0 +1,2 @@
+culture = aroanian
+religion = animism
