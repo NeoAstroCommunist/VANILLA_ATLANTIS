@@ -2,7 +2,6 @@
 Atlantis mod for vanilla EU4. 
 According to popular demand, i decided to make EU4 version of my renowned* submod for Meiou and Taxes 3.0 - Atlantis submod!
 
-This version of mod is set 88 years later in timeline. I removed ~30% of provinces for balancing reasons, but may return them later.
 I plan to make this version of mod playable right from Github. There will be one branch until i make first working version, then i will create alpha branch for updates.
 
 *800 subs is renowned?
