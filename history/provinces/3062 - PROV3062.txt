@@ -1,2 +1,0 @@
-culture = lognlander
-religion = norse_pagan_reformed

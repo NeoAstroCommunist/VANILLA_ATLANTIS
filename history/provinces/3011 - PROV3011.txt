@@ -1,5 +1,0 @@
-owner = AT4
-add_core = AT4
-controller = AT4
-culture = barqaqarti
-religion = shiite

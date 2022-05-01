@@ -1,2 +1,0 @@
-culture = odomantian
-religion = gnostic

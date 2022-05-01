@@ -1,5 +1,0 @@
-owner = AT6
-add_core = AT6
-controller = AT6
-culture = numidian
-religion = chalcedonism

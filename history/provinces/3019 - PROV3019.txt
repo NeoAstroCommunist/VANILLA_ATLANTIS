@@ -1,5 +1,0 @@
-owner = AT7
-add_core = AT7
-controller = AT7
-culture = tsakonian
-religion = catholic

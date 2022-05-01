@@ -1,2 +1,0 @@
-culture = saioan
-religion = animism

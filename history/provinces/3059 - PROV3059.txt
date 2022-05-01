@@ -1,2 +1,0 @@
-culture = thynian
-religion = catholic

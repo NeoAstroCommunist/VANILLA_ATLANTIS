@@ -1,6 +1,0 @@
-owner = AT2
-add_core = AT2
-add_claim = AT3
-controller = AT2
-culture = finiqian
-religion = sunni

@@ -209,7 +209,7 @@ celtic_sea_area = {
 }
 
 west_african_coast_sea_area = {
-	1467 1468 1469 1470 1471 1472 1578 1579
+	1467 1468 1469 1470 1471 1472 1578 1579 1581 3225
 }
 
 south_atlantic_area = {
@@ -229,11 +229,11 @@ gulf_stream_area = {
 }
 
 sargasso_sea_area = {
-	1526 1568 1569 1572 1573 1574 1575 1581 1582 1583
+	1526 1568 1569 1572 1573 1574 1575 1580 1582 1583 
 }
 
 north_atlantic_area = {
-	1283 1286 1287 1290 1291 1292 1478 1479 1497 1498 1563 1565 1564 1566 1567 1580
+	1283 1286 1287 1290 1291 1292 1478 1479 1497 1498 1563 1565 1564 1566 1567
 }
 
 bahama_channel_area = {
@@ -3727,6 +3727,161 @@ windward_islands_area = { #5
 transvaal_area = { #4
 	4781 4782 4783 4784
 }
+
+# Atlantis #
+
+east_atlantean_archipelago_area = {
+    3077 3078 3079 3080 3081 3083
+}
+
+west_atlantean_archipelago_area = {
+    3082 3084 3085 3086
+}
+
+atlantean_horn_north_area = {
+    3191 3192 3193 3197 3198
+}
+
+atlantean_horn_south_area = {
+    3194 3195 3196 3199
+}
+
+atlantean_highlands_east_area = {
+    3202 3203 3204 3205 3206
+}
+
+atlantean_highlands_west_area = {
+    3208 3209 3212 3213 3215
+}
+
+atlantean_highlands_north_area = {
+    3179 3183 3185 3186 3187 3188 3189
+}
+
+atlantean_lowlands_south_area = {
+    3200 3201 3207 3210 3211
+}
+
+atlantean_lowlands_southeast_area = {
+    3214 3216 3217 3218
+}
+
+atlantean_lowlands_southwest_area = {
+    3089 3090 3091 3092
+}
+
+atlantean_lowlands_west_area = {
+    3181 3182 3184 3190
+}
+
+atlantean_lowlands_north_area = {
+    3171 3172 3173 3174 3175 3178 3180
+}
+
+atlantean_miedzygorski_area = {
+    3118 3120 3176 3177
+}
+
+atlantean_northern_archipelago_east_area = {
+    3159 3160 3161 3162
+}
+
+atlantean_northern_archipelago_west_area = {
+    3154 3155 3156 3157 3158 3163
+}
+
+atlantean_crete_area = {
+    3070 3071 3072 3073 3074 3075 3076
+}
+
+atlantean_cyprus_area = {
+    3063 3064 3065 3066 3067 3068 3069
+}
+
+atlantean_rhodos_area = {
+    3060 3061 3062
+}
+
+atlantean_mali_north_area = {
+    3056 3057 3058 3059  
+}
+
+atlantean_mali_south_area = {
+    3053 3054 3055
+}
+
+atlantean_westsouth_area = {
+    3087 3088 3093 3094 3095 3096 3097
+}
+
+atlantean_east_area = {
+    3098 3099 3100 3101 3102
+}
+
+atlantean_eastcentral_area = {
+    3103 3104 3106 3108 3109 3111
+}
+
+atlantean_east_coast_area = {
+    3105 3107 3110 3112 3116
+}
+
+atlantean_eastnorth_area = {
+    3113 3114 3115 3117
+}
+
+atlantean_northeast_area = {
+    3119 3121 3123 3124
+}
+
+atlantean_north_area = {
+    3122 3125 3126 3127 3130
+}
+
+atlantean_northwest_area = {
+    3166 3167 3168 3169 3170
+}
+
+atlantean_real_northeast_area = {
+    3152 3153 3164 3165
+}
+
+atlantean_real_northwest_area = {
+    3128 3129 3131 3132
+}
+
+atlantean_march_west_area = {
+    3133 3134 3135 3136 3137
+}
+
+atlantean_march_east_area = {
+    3145 3146 3147 3148 3149 3150 3151
+}
+
+atlantean_vikings_peninsula_area = {
+    3138 3139 3144
+}
+
+atlantean_vikings_islands_area = {
+   3140 3141 3142 3143
+}
+
+atlantis_sea1_area = {
+   3224 3226 3227
+}
+
+atlantis_sea2_area = {
+   3235 3236 3237 3238 3239 3240 3241 3242
+}
+
+atlantis_sea3_area = {
+   3231 3232 3233 3234
+}
+
+atlantis_sea4_area = {
+   3228 3229 3230
+}
+
 
 #############################
 #Deprecated:

@@ -1,2 +1,0 @@
-culture = romaneuphemian
-religion = catholic

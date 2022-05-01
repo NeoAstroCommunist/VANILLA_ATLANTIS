@@ -3002,7 +3002,7 @@ province;red;green;blue;x;x
 3001;232;5;5;Skopje;x
 3002;134;198;192;Sarajevo;x
 3003;188;110;220;Euboea;x
-3004;189;110;220;Unused1; #Atlantis starts here
+3004;189;110;220;Unused1; 
 3005;190;110;220;Unused2;
 3006;191;110;220;Unused3;
 3007;192;110;220;Unused4;
@@ -3050,8 +3050,8 @@ province;red;green;blue;x;x
 3049;207;110;248;Unused36;
 3050;207;110;249;Unused37;
 3051;207;110;250;Unused38;
-3052;208;110;1;Unused39;
-3053;207;110;2;Unused40;
+3052;208;110;1;Unused39; 
+3053;207;110;2;Unused40; #Atlantis starts here
 3054;207;110;3;Unused41;
 3055;207;110;4;Unused42;
 3056;207;110;5;Unused43;
@@ -3091,14 +3091,14 @@ province;red;green;blue;x;x
 3090;207;110;39;Unused77;
 3091;207;110;40;Unused78;
 3092;207;110;41;Unused79;
-3093;207;110;42;Unused80; #Atlantis Ends
+3093;207;110;42;Unused80; 
 3094;207;110;43;Unused81;
 3095;207;110;44;Unused82;
 3096;207;110;45;Unused83;
 3097;207;110;46;Unused84;
 3098;207;110;47;Unused85;
 3099;207;110;48;Unused86;
-3100;207;110;49;Unused87; #End here now
+3100;207;110;49;Unused87;
 3101;207;110;50;Unused88;
 3102;207;110;51;Unused89;
 3103;207;110;52;Unused90;
@@ -3221,8 +3221,8 @@ province;red;green;blue;x;x
 3220;219;32;30;UnusedLand30;
 3221;219;32;31;UnusedLand31;
 3222;219;32;32;UnusedLand32;
-3223;219;32;33;UnusedLand33;
-3224;219;32;34;UnusedLand34;
+3223;219;32;33;UnusedLand33; #Atlantis provinces end here
+3224;219;32;34;UnusedLand34; #Sea tiles start here
 3225;219;32;35;UnusedLand35;
 3226;219;32;36;UnusedLand36;
 3227;219;32;37;UnusedLand37;
@@ -3240,7 +3240,7 @@ province;red;green;blue;x;x
 3239;219;32;49;UnusedLand49;
 3240;219;32;50;UnusedLand50;
 3241;219;32;51;UnusedLand51;
-3242;219;32;52;UnusedLand52;
+3242;219;32;52;UnusedLand52; #Sea tiles end here
 3243;219;32;53;UnusedLand53;
 3244;219;32;54;UnusedLand54;
 3245;219;32;55;UnusedLand55;

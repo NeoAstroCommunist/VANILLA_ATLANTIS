@@ -1,7 +1,0 @@
-owner = AT9
-add_core = AT9
-add_core = AT2
-add_core = AT4
-controller = AT9
-culture = barqaqarti
-religion = shiite

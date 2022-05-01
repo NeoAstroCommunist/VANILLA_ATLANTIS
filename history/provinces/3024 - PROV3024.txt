@@ -1,2 +1,0 @@
-culture = romansithon
-religion = catholic
