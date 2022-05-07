@@ -1,0 +1,150 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 158 157 189 }
+
+historical_idea_groups = {
+	aristocracy_ideas
+	naval_ideas
+	trade_ideas
+}
+
+historical_units = { #Scandinavian Group
+	western_halberd_infantry
+	western_hobelar_cavalry
+	western_manatarms_infantry
+	unique_DAN_obudshaer_infantry
+	western_mountedarcher_cavalry
+	western_pike_infantry
+	western_gendarme_cavalry
+	western_charge_infantry
+	western_freeshooter_infantry
+	western_cuirassier_cavalry
+	western_tercio_infantry
+	western_soldaty_infantry
+	western_gallop_cavalry
+	unique_SWE_hakkapeliitta_cavalry
+	western_countermarch_infantry
+	western_volley_infantry
+	unique_SWE_gustavian_infantry
+	western_platoon_infantry
+	western_bayonet_infantry
+	unique_SWE_carolean_infantry
+	western_armeblanche_cavalry
+	western_drill_infantry
+	western_uhlan_cavalry
+	western_impulse_infantry
+	western_lancer_cavalry
+	western_breech_infantry
+}
+
+
+monarch_names = {
+	"Karl" = 80
+	"Gustav" = 60
+	"Johan" = 1
+	"Erik" = 1
+	"Karl  Gustav" = 1
+	"Gustav  Adolf" = 1
+	"Adolf Fredrik" = 1
+	"Fredrik" = 1
+	"Sigismund" = 1
+	"Karl  Filip" = 1
+	"Magnus" = 1
+	"Adolf Johan" = 1
+	"Fredrik Adolf" = 1
+	"Fredrik August" = 1
+	"Göran Love" = 1
+	"Christian" = 1
+	"Björn" = 1
+	"Knut" = 1
+	"Inge" = 1
+	"Sven" = 1
+	"Waldemar" = 1
+	"Alfred" = 1
+	"Axel" = 1
+	"Bengt" = 1
+	"Edvard" = 1
+	"Einar" = 1
+	"Folke" = 1
+	"Gottfrid" = 1
+	"Henrik" = 1
+	"Jakob" = 1
+	"Lars" = 1
+	"Ludvig" = 1
+	"Mikael" = 1
+	"Nils" = 1
+	"Olof" = 1
+	"Oskar" = 1
+	"Patrik" = 1
+	"Rangvald" = 1
+	"Rettil" = 1
+	"Sigvard" = 1
+	"Simon" = 1
+	"Sten Sture" = 1
+	"Svante" = 1
+	"Tomas" = 1
+	"Ulrik" = 1
+	"Viggo" = 1
+	
+	"Hedwig" = -10
+	"Christina" = -10
+	"Ulrika" = -10
+	"Eleonora" = -5
+	"Margaret" = -5
+	"Nina" = -5
+	"Anna" = -5
+	"Katarina" = -1
+	"Margareta" = -1
+	"Cecilia" = -1
+	"Elisabet" = -1
+	"Birgitta" = -1
+}
+
+leader_names = {
+	Andersson Armfeldt "von Ascheberg" Adlercreutz Adlersparre Alkmaar Anckarström
+	Bagge Banér Bielke Brahe
+	Cronstedt
+	"von Döbeln" Dahlbergh Dufwa
+	Engelbrekt Eriksson Ehrensvärd "von Essen" Eka Ehrenstrahl
+	Fleming "von Fersen"
+	Gadh Grip "af Gennäs" "de la Gardie" Gyllenhielm Gathenhielm Gustavsson
+	Horn Hård Hahn Hastfer Hjärne
+	Jägerhorn
+	Königsmarck Klingspor
+	Lewenhaupt Leijonhufvud Liljencrantz Lindschöld
+	Oxenstierna
+	Palmstruch Piper Prinz
+	Rehnskiöld Ribbing
+	Stenbock Sandels Skytte Sture
+	"Tre Rosor" Torstensson "af Trolle" Toll
+	Wrangel Wachtmeister Wallenberg
+	Åkerhielm
+}
+
+ship_names = {
+	Akilles Amarant Andromeda Anklam
+	Bohus "Böse Lejon"
+	Calmar Camilla Carolus Charlotte Cossacken Crono-Solen
+	David Disa Draken Drottningen
+	Elefanten Elfsborg Elisabet Engel "Engel Gabriel" Enighet Euridice
+	Falk Fenix Finland "Flygande Wargen" Fortuna Fredrika "Fredrika Amalia" Fröija Galathe
+	"Gamla Fortuna" "Gamla Rikssvärdet" "Gotha Lejon" Grip Gustavus "Gyllende Lejon" Göta Göteborg
+	Halland Havsfru Hektor Herkules Hieronymus Hjalmar Hök
+	Illerim Ingeborg
+	Jomfru Jupiter Jägare
+	"Kalmar Nyckel" Kalmarkastell Karlskrona Kronan
+	Laxen Leopard Lejon Lodbrok
+	Mars Mercurius Morgonstjärna
+	Norden Nordstjärna Nyckeln Nyland
+	Oden
+	Öland Örn
+	Pelikanen Postillion "Prins Carl" Prinsessan
+	Regina Rosa
+	Skåne Småland Solen "St. Erik" "St. Göran" "St. Johannes" "St. Thomas" Starkoster Stenbock Stockholm "Stora Cronan" Svan "Svenska Falk" "Svenska Lejonet" Sverige Svärdet Södermanland
+	Tapper Thetis Tigern "Tre Kronor" Troilus
+	Ulrica Uppland
+	Vasen Vestervik Victoria
+	Warberg Wasa Wenden Werden Wästmanland Witduve
+}

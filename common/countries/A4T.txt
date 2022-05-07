@@ -1,0 +1,120 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 104 136 3 }
+
+historical_idea_groups = {
+	aristocracy_ideas
+	fortification_ideas
+	administrative_ideas
+}
+
+historical_units = { #Celtic group
+	western_spearman_infantry
+	western_hobelar_cavalry
+	western_longbow_infantry
+	unique_ATL_yeoman_infantry
+	western_mountedarcher_cavalry
+	western_pike_infantry
+	western_gendarme_cavalry
+	western_charge_infantry
+	unique_ATL_galloglaigh_infantry
+	western_freeshooter_infantry
+	western_cuirassier_cavalry
+	western_tercio_infantry
+	western_irregular_infantry
+	western_gallop_cavalry
+	western_countermarch_infantry
+	western_volley_infantry
+	western_platoon_infantry
+	western_bayonet_infantry
+	western_carabinier_cavalry
+	western_rifled_infantry
+	western_hunter_cavalry
+	western_impulse_infantry
+	western_lancer_cavalry
+	western_breech_infantry
+}
+
+leader_names = {
+	Acco Addedomarus Adiatuanus Adminius Aiorix Ambicatos Andecombogius Aneroestes Ariovistus Arverus Arvirargus Atis Avitus 
+	Bellicianus Bellovesus Boduognatus Boio Boiorix Bolgios Brennus Bricussa Britomaris Brucetius Buite Cailtram Caractacus 
+	Carvilius Cassivellaunus Cattulanus Cartorites Catugnatus Cavarinus Cavarus Celatus Cingetorix Coilus Commios Comux Concolitanus Correus Cottius Crixus
+	Cunobelinus Diviciacus Divico Donnus Drappes Dubnovellaunus Dumnacus Ducarius Duratios Dumnocoveros Dumnorix Elitovius Etitovius Epatticus
+	Galan Galba Guiderius Iacus Iccius Immanuentius Inamarcus Inammicus Indutiomarus Kimarcus Lucterius Lugotorix Lutarius Mallaius Mandubracius Marganus Mascelio
+	Orgetorix Prasutagus Segovax Sinatus Sinorix Sisillius Talorc Tasciovanus Tasgetius Taximagulus Teutomalius Tincomarus Togodumnus Vertiscus
+	Venutius Viridorix Vosenius Vodenos
+}
+
+monarch_names = {
+	"Boiorix" = 1
+	"Cingetorix" = 1
+	"Dumnorix" = 1
+	"Crixus" = 1
+	"Lugotorix" = 1
+	"Cavarus" = 1
+	"Orgetorix" = 1
+	"Cadwaladr" = 1
+	"Cunobelinus" = 1
+	"Idwal" = 1
+	"Maelgwyn" = 1
+	"Einion" = 1
+	"Iorwerth" = 1
+	"Trahaearn" = 1
+	"Cassivellaunus" = 1
+	"Acco" = 1
+	"Aneirin" = 1
+	"Aiorix" = 1
+	"Berwyn" = 1
+	"Brynmor" = 1
+	"Cadfael" = 1
+	"Cadoc" = 1
+	"Cadwgawn" = 1
+	"Celyn" = 1
+	"Cledwyn" = 1
+	"Colwyn" = 1
+	"Dai" = 1
+	"Dilwyn" = 1
+	"Emyr" = 1
+	"Gawain" = 1
+	"Glynn" = 1
+	"Gwyn" = 1
+	"Heddwyn" = 1
+	"Heilyn" = 1
+	"Hywel" = 1
+	"Rhian" = 1
+	"Ariovistus" = 1
+	"Tudor" = 1
+	"Urien" = 1
+	"Vaughan" = 11
+	
+	"Aife" = -1
+	"Boudica" = -1
+	"Bricta" = -1
+	"Cartimandua" = -1
+	"Órfhlaith" = -1
+	"Fedelma" = -1
+	"Neassa" = -1
+	"Rosheen" = -1
+	"Siofra" = -1
+	"Ceridwen" = -1
+	"Elain" = -1
+	"Gwenyth" = -1
+	"Cunsa" = -1
+}
+
+ship_names = {
+	Bedwyr Brycheiniog
+	Cadwaladr Caerdydd Caernarfon Caradoc Ceredigion Conwy Culhwch
+	Deheubarth "Dewi Sant" Dolbadarn Dolwyddelan Dyfed
+	Eryri
+	Glywysing Gwalchmei "Gwenan Gorn" Gwydion Gwyn Gwynedd
+	Lleu "Llewellyn Fawr"
+	Mabinogi Math Meirionydd Morgannwg
+	Olwen "Owain Glyndwr"
+	Penfro Powys "Preiddeu Annwn" Pryderi Pwyll
+	Rhiannon
+	Taff Teifi Teirnon Tywi
+	"Ynys Môn"
+}

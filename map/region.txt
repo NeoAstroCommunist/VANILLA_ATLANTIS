@@ -1392,6 +1392,9 @@ north_atlantic_region = {
 		bay_of_biscay_area
 		north_atlantic_area
 		denmark_strait_area
+		atlantic_sea1_area
+		atlantic_sea3_area
+		atlantic_sea4_area
 	}
 }
 
@@ -1427,6 +1430,7 @@ west_african_sea_region = {
 	areas = {
 		west_african_coast_sea_area
 		gulf_of_guinea_sea_area
+		atlantis_sea2_area
 	}
 }
 
@@ -1527,5 +1531,66 @@ south_atlantic_region = {
 		south_atlantic_area
 		skeleton_coast_area
 		cape_of_storms_area
+	}
+}
+
+#Atlantis
+
+south_atlantis_region = {
+    areas = {
+	    atlantean_mali_south_area
+		atlantean_mali_north_area
+		atlantean_rhodos_area
+		atlantean_cyprus_area
+		atlantean_crete_area
+		atlantean_westsouth_area
+		atlantean_lowlands_southwest_area
+		atlantean_lowlands_southeast_area
+		west_atlantean_archipelago_area
+		east_atlantean_archipelago_area
+	}
+}
+
+east_atlantis_region = {
+    areas = {
+	    atlantean_lowlands_south_area
+		atlantean_horn_south_area
+		atlantean_horn_north_area
+		atlantean_lowlands_west_area
+		atlantean_highlands_east_area
+		atlantean_highlands_west_area
+		atlantean_highlands_north_area
+	}
+}
+
+west_atlantis_region = {
+    areas = {
+	    atlantean_east_area
+		atlantean_eastcentral_area
+		atlantean_eastnorth_area
+		atlantean_east_coast_area
+		atlantean_northeast_area
+		atlantean_miedzygorski_area
+		atlantean_north_area
+		atlantean_real_northwest_area
+	}
+}
+
+northeast_atlantis_region = {
+    areas = {
+	    atlantean_lowlands_north_area
+		atlantean_northwest_area
+		atlantean_northern_archipelago_west_area
+		atlantean_northern_archipelago_east_area
+		atlantean_real_northeast_area
+	}
+}
+
+north_atlantis_region = {
+    areas = {
+	    atlantean_march_west_area
+		atlantean_march_east_area
+		atlantean_vikings_peninsula_area
+		atlantean_vikings_islands_area
 	}
 }

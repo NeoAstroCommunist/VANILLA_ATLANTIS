@@ -179,3 +179,11 @@ north_pacific_sea_superregion = {
 	east_china_sea_region
 	north_west_pacific_region
 }
+
+atlantis_superregion = {
+    south_atlantis_region
+	east_atlantis_region
+	west_atlantis_region
+	northeast_atlantis_region
+	north_atlantis_region
+}

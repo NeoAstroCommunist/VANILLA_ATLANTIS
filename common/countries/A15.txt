@@ -1,0 +1,100 @@
+#Country Name: Please see filename.
+
+graphical_culture = westerngfx
+
+color = { 54 106 83 }
+
+historical_idea_groups = {
+	aristocracy_ideas
+	fortification_ideas
+	diplomacy_ideas
+}
+
+historical_units = { #Celtic group
+	western_spearman_infantry
+	western_hobelar_cavalry
+	western_longbow_infantry
+	unique_ATL_yeoman_infantry
+	western_mountedarcher_cavalry
+	western_pike_infantry
+	western_gendarme_cavalry
+	western_charge_infantry
+	unique_ATL_galloglaigh_infantry
+	western_freeshooter_infantry
+	western_cuirassier_cavalry
+	western_tercio_infantry
+	western_irregular_infantry
+	western_gallop_cavalry
+	western_countermarch_infantry
+	western_volley_infantry
+	western_platoon_infantry
+	western_bayonet_infantry
+	western_carabinier_cavalry
+	western_rifled_infantry
+	western_hunter_cavalry
+	western_impulse_infantry
+	western_lancer_cavalry
+	western_breech_infantry
+}
+
+monarch_names = {
+	"Indo" = 1
+	"Lagunas" = 1
+	"Tureno" = 1
+	"Unibelos" = 1
+	"Talskubilos" = 1
+	"Seihar" = 1
+	"Skarisker" = 1
+	"Sacarisker" = 1
+	"Turibas" = 1
+	"Urcetices" = 1
+	"Uxentio" = 1
+	"Umarilo" = 1
+	"Talskubilos" = 1
+	"Abadutiker" = 1
+	"Punicus" = 1
+	"Ambon" = 1
+	"Abaraban" = 1
+	"Andobales" = 1
+	"Balkar" = 1
+	"Babpo" = 1
+	"Biurtetel" = 1
+	"Bosilkas" = 1
+	"Budar" = 1
+	"Caro" = 1
+	"Culcas" = 1
+	"Gargoris" = 1
+	"Iscerbeles" = 1
+	"Kara" = 1
+	"Korbis" = 1
+	"Korribilo" = 1
+	"Mandonio" = 1
+	"Magavarico" = 1
+	
+	"Ana" = -1
+	"Ama" = -1
+	"Aretaunin" = -1
+	"Aunia" = -1
+	"Canine" = -1
+	"Daleninar" = -1
+	"Similce" = -1
+	"Sicounin" = -1
+	"Thurinninar" = -1
+	"Secetaunin" = -1
+	"Teite" = -1
+	"Tettingica" = -1
+	"Nerseada" = -1
+}
+
+leader_names = {
+	Abadutiker Punicus Ambon Abaraban Andobales Balkar Babpo Biurtetel Bosilkas Budar Caro Culcas Gargoris Indo Iscerbeles Kara Korbis Korribilo Mandonio Magavarico
+	Lagunas Orisos Otirgeter Nisunin Nereildun Tiresio Otigirteker Redukeno Sakarbik Sosintaucer Sosian Seihar Skarisker Sacarisker Tureno Turibas Unibelos Urcetices Uxentio Umarilo Talskubilos
+}
+
+ship_names = {
+	
+}
+
+army_names = {
+
+}
