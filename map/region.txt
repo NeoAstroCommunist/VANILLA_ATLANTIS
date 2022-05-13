@@ -1392,9 +1392,9 @@ north_atlantic_region = {
 		bay_of_biscay_area
 		north_atlantic_area
 		denmark_strait_area
-		atlantic_sea1_area
-		atlantic_sea3_area
-		atlantic_sea4_area
+		atlantis_sea1_area
+		atlantis_sea3_area
+		atlantis_sea4_area
 	}
 }
 

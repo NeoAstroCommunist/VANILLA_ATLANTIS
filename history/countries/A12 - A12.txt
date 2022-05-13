@@ -1,0 +1,21 @@
+
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 2
+mercantilism = 0.0
+primary_culture = romaneuphemian
+religion = catholic
+technology_group = western
+capital = 3181
+fixed_capital = 3181
+
+1433.1.1 = {
+	monarch = {
+		name = "Georgius"
+		dynasty = "Theodosius"
+		birth_date = 1411.1.1
+		DIP = 2
+		ADM = 4
+		MIL = 2
+		}
+}

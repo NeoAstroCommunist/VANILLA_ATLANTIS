@@ -808,7 +808,7 @@ christian = {
 	chalcedonism = { 
 		color = { 0.7 0.5 0.0}
 		icon = 14
-		allowed_conversion = { catholic orthodox gnostic coptic}
+		allowed_conversion = { catholic orthodox coptic}
 		country = { 
 			global_missionary_strength = 0.01
 			global_autonomy = -0.025
@@ -824,30 +824,6 @@ christian = {
 		misguided_heretic = yes
 		heretic = { Fundamentalist Sectarian Populist Reactionary Millenarian Apocalyptic Ultraorthodox Humanistic Syncretic Messianic}
 		date = 2000.1.1
-	}
-    gnostic = { 
-		color = { 0.9 0.7 0.1}
-		icon = 15
-		allowed_conversion = { reformed protestant catholic hussite orthodox}
-		province = { }
-		country = { 
-			global_missionary_strength = 0.01
-			tolerance_heretic = 1
-			global_unrest = -1
-			diplomatic_reputation = 1
-			adm_tech_cost_modifier = -0.05
-			army_tradition = -0.5
-		}
-		country_as_secondary = { 
-			tolerance_heretic = 1
-			adm_tech_cost_modifier = -0.05
-			army_tradition = -0.5
-		}
-		on_convert = { 
-			change_religion = gnostic
-		}
-		misguided_heretic = yes
-		heretic = { Fundamentalist Sectarian Populist Reactionary Millenarian Apocalyptic Ultraorthodox Humanistic Syncretic Messianic}
 	}
 	
 	harmonized_modifier = harmonized_christian

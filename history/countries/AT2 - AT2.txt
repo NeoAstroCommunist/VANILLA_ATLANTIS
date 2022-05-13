@@ -1,0 +1,25 @@
+
+government = monarchy
+add_government_reform = iqta
+government_rank = 3
+mercantilism = 0.0
+primary_culture = finiqian
+religion = sunni
+technology_group = muslim
+capital = 3237
+fixed_capital = 3237
+historical_rival = AT1
+historical_rival = AT4
+historical_rival = AT3
+historical_rival = A1T
+
+1421.1.1 = {
+	monarch = {
+		name = "Muhammad"
+		dynasty = "Ayyuubid"
+		birth_date = 1401.1.1
+		DIP = 0
+		ADM = 0
+		MIL = 4
+		}
+}

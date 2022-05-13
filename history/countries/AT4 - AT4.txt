@@ -1,0 +1,25 @@
+
+government = monarchy
+add_government_reform = iqta
+government_rank = 2
+mercantilism = 0.0
+primary_culture = barqaqarti
+religion = shiite
+technology_group = muslim
+capital = 3207
+fixed_capital = 3207
+historical_rival = AT1
+historical_rival = AT3
+historical_rival = AT2
+historical_rival = A1T
+
+1440.1.1 = {
+	monarch = {
+		name = "Aslam"
+		dynasty = "Al-Barqa"
+		birth_date = 1420.1.1
+		DIP = 5
+		ADM = 3
+		MIL = 5
+		}
+}

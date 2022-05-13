@@ -1,0 +1,23 @@
+
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 2
+mercantilism = 0.0
+primary_culture = thynlander
+add_accepted_culture = thynian
+add_accepted_culture = lognlander
+religion = catholic
+technology_group = western
+capital = 3139
+fixed_capital = 3139
+
+1425.1.1 = {
+	monarch = {
+		name = "Sumarlidi"
+		dynasty = "Leiknirsson"
+		birth_date = 1388.1.1
+		DIP = 3
+		ADM = 5
+		MIL = 6
+		}
+}

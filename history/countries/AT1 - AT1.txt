@@ -1,0 +1,24 @@
+
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 2
+mercantilism = 0.0
+primary_culture = cartagean
+religion = chalcedonism
+technology_group = western
+capital = 3199
+fixed_capital = 3199
+historical_rival = AT4
+historical_rival = AT2
+historical_neutral = A12
+
+1401.1.1 = {
+	monarch = {
+		name = "Onias II"
+		dynasty = "Magonid"
+		birth_date = 1381.1.1
+		DIP = 6
+		ADM = 6
+		MIL = 6
+		}
+}

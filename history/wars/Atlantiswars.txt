@@ -1,0 +1,11 @@
+name = "Moeniccian Rebellion"
+war_goal = {
+	type = take_core
+	casus_belli = cb_core
+	province = 3125 
+}
+
+1441.1.1 = {
+	add_attacker = A7T
+	add_defender = A10
+}

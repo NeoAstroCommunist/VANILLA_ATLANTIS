@@ -6,37 +6,30 @@ color = { 158 157 189 }
 
 historical_idea_groups = {
 	aristocracy_ideas
-	naval_ideas
 	trade_ideas
+	defensive_ideas
+	offensive_ideas
+	economic_ideas
+	diplomatic_ideas
+	innovativeness_ideas
+	maritime_ideas
 }
 
-historical_units = { #Scandinavian Group
-	western_halberd_infantry
-	western_hobelar_cavalry
-	western_manatarms_infantry
-	unique_DAN_obudshaer_infantry
-	western_mountedarcher_cavalry
-	western_pike_infantry
-	western_gendarme_cavalry
-	western_charge_infantry
-	western_freeshooter_infantry
-	western_cuirassier_cavalry
-	western_tercio_infantry
-	western_soldaty_infantry
-	western_gallop_cavalry
-	unique_SWE_hakkapeliitta_cavalry
-	western_countermarch_infantry
-	western_volley_infantry
-	unique_SWE_gustavian_infantry
-	western_platoon_infantry
-	western_bayonet_infantry
-	unique_SWE_carolean_infantry
-	western_armeblanche_cavalry
-	western_drill_infantry
-	western_uhlan_cavalry
-	western_impulse_infantry
-	western_lancer_cavalry
-	western_breech_infantry
+historical_units = {
+	western_medieval_infantry
+	western_medieval_knights
+	western_men_at_arms
+	dutch_maurician
+	swedish_gallop
+	swedish_gustavian
+	swedish_caroline
+	swedish_arme_blanche
+	prussian_frederickian
+	prussian_uhlan
+	mixed_order_infantry
+	open_order_cavalry
+	napoleonic_square
+	napoleonic_lancers
 }
 
 

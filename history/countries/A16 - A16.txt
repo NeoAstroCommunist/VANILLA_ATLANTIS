@@ -1,0 +1,9 @@
+
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 2
+mercantilism = 0.0
+primary_culture = lognlander
+religion = norse_pagan_reformed
+technology_group = western
+capital = 3141

@@ -1,0 +1,9 @@
+
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 1
+mercantilism = 0.0
+technology_group = western
+primary_culture = dorian
+religion = catholic
+capital = 3111

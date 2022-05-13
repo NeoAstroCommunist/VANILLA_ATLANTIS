@@ -1,0 +1,19 @@
+government = republic
+add_government_reform = merchants_reform
+government_rank = 1
+mercantilism = 25
+primary_culture = romansithon
+religion = catholic
+technology_group = western
+capital = 3174	# Salonae
+fixed_capital = 3174 # Cannot move capital away from this province & no power cost to move to it
+
+1433.1.1 = {
+	monarch = {
+		name = "Truculentus Scato"
+		birth_date = 1390.1.1
+		adm = 3
+		dip = 4
+		mil = 4
+	}
+}

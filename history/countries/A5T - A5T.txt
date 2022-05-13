@@ -1,0 +1,21 @@
+
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 2
+mercantilism = 0.0
+primary_culture = brygian
+religion = catholic
+technology_group = western
+capital = 3116
+fixed_capital = 3116
+
+1444.1.1 = {
+	monarch = {
+		name = "Georgius"
+		dynasty = "Galanus"
+		birth_date = 1425.1.1
+		DIP = 5
+		ADM = 4
+		MIL = 4
+		}
+}

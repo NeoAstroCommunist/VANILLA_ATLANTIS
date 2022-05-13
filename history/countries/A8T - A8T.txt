@@ -1,0 +1,23 @@
+government = theocracy
+add_government_reform = monastic_order_reform
+government_rank = 1
+primary_culture = romanphocisian
+add_accepted_culture = romanmagnet
+religion = catholic
+technology_group = western
+historical_rival = A7T
+capital = 3176
+add_army_professionalism = 0.1
+
+change_estate_land_share = {
+	estate = estate_burghers
+	share = 25
+}
+change_estate_land_share = {
+	estate = estate_church
+	share = -15
+}
+change_estate_land_share = {
+	estate = estate_nobles
+	share = -10
+}

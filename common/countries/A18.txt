@@ -5,35 +5,31 @@ graphical_culture = westerngfx
 color = { 159 56 61 }
 
 historical_idea_groups = {
+	trade_ideas
 	economic_ideas
-	standing_army_ideas
-	administrative_ideas
+	defensive_ideas
+	innovativeness_ideas
+	spy_ideas
+	offensive_ideas
+	religious_ideas
+	diplomatic_ideas
 }
 
-historical_units = { #French group
-	western_halberd_infantry
-	western_knight_cavalry
-	unique_A21_chariot
-	western_manatarms_infantry
-	western_runner_cavalry
-	western_lance_infantry
-	western_gendarme_cavalry
-	western_pikeandshot_infantry
-	western_earlytercio_infantry
-	western_caracole_cavalry
-	western_tercio_infantry
-	western_musketeersquare_infantry
-	western_dragoon_cavalry
-	western_countermarch_infantry
-	western_volley_infantry
-	unique_A21_neolegionaires
-	western_line_infantry
-	western_carabinier_cavalry
-	western_drill_infantry
-	western_hunter_cavalry
-	unique_A21_expedition_infantry
-	western_lancer_cavalry
-	western_jominian_infantry
+historical_units = {
+	western_medieval_infantry
+	western_medieval_knights
+	western_men_at_arms
+	italian_condotta
+	spanish_tercio
+	austrian_tercio
+	austrian_grenzer
+	austrian_hussar
+	austrian_white_coat
+	austrian_jaeger
+	mixed_order_infantry
+	open_order_cavalry
+	napoleonic_square
+	napoleonic_lancers
 }
 
 

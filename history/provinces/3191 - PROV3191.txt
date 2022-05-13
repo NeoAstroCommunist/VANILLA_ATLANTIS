@@ -1,0 +1,16 @@
+ owner = AT1 
+ controller = AT1
+ add_core = AT1
+ culture = cartagean
+ religion = chalcedonism
+ capital = "Baal Hadast"
+ trade_goods = fish
+ is_city = yes
+ hre = no
+ base_tax = 6
+ base_production = 5
+ base_manpower = 8
+ discovered_by = eastern
+ discovered_by = western
+ discovered_by = muslim
+ discovered_by = ottoman

@@ -1,0 +1,24 @@
+
+government = monarchy
+add_government_reform = iqta
+government_rank = 2
+mercantilism = 0.0
+primary_culture = hormuzian
+religion = sunni
+technology_group = muslim
+capital = 3070
+fixed_capital = 3070
+historical_rival = AT3
+historical_rival = AT2
+historical_rival = AT4
+
+1439.1.1 = {
+	monarch = {
+		name = "Baheej"
+		dynasty = "el-Sulaiman"
+		birth_date = 1386.1.1
+		DIP = 4
+		ADM = 6
+		MIL = 2
+		}
+}

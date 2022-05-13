@@ -1,0 +1,23 @@
+
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 2
+mercantilism = 0.0
+primary_culture = romanmagnet
+add_accepted_culture = romanemerita
+religion = catholic
+technology_group = western
+capital = 3152
+fixed_capital = 3152
+historical_rival = A7T
+
+1439.1.1 = {
+	monarch = {
+		name = "Cleomachus"
+		dynasty = "Magnusius"
+		birth_date = 1414.1.1
+		DIP = 3
+		ADM = 3
+		MIL = 3
+		}
+}

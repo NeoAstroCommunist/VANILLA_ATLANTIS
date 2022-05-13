@@ -1,0 +1,21 @@
+
+government = monarchy
+add_government_reform = iqta
+government_rank = 2
+mercantilism = 0.0
+primary_culture = mali
+religion = sunni
+technology_group = muslim
+capital = 3057
+fixed_capital = 3057
+
+1434.1.1 = {
+	monarch = {
+		name = "Abubakar"
+		dynasty = "Keita"
+		birth_date = 1405.1.1
+		DIP = 0
+		ADM = 4
+		MIL = 3
+		}
+}

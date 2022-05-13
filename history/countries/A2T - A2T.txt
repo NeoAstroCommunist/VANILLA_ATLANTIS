@@ -1,0 +1,21 @@
+
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 2
+mercantilism = 0.0
+primary_culture = bassanian
+religion = chalcedonism
+technology_group = western
+capital = 3215
+fixed_capital = 3215
+
+1444.1.1 = {
+	monarch = {
+		name = "Joseph"
+		dynasty = "Nisat"
+		birth_date = 1399.1.1
+		DIP = 6
+		ADM = 6
+		MIL = 6
+		}
+}

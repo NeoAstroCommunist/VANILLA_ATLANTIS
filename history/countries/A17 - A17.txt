@@ -1,0 +1,19 @@
+
+government = republic
+add_government_reform = peasants_republic
+mercantilism = 0.0
+primary_culture = saioan
+religion = animism
+technology_group = western
+capital = 3124
+fixed_capital = 3124
+
+1444.1.1 = {
+	monarch = {
+		name = "Fish Tournament"
+		ADM = 0
+		DIP = 0
+		MIL = 0
+		regent = yes
+	}
+}

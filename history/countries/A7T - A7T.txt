@@ -1,0 +1,23 @@
+
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 2
+mercantilism = 0.0
+primary_culture = odomantian
+religion = catholic
+technology_group = western
+capital = 3123
+fixed_capital = 3125
+historical_rival = A8T
+historical_rival = A10
+
+1444.1.1 = {
+	monarch = {
+		name = "Indo"
+		dynasty = "Korbidus"
+		birth_date = 1411.1.1
+		DIP = 5
+		ADM = 5
+		MIL = 6
+		}
+}

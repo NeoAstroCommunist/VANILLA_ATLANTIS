@@ -5,36 +5,26 @@ graphical_culture = westerngfx
 color = { 104 136 3 }
 
 historical_idea_groups = {
-	aristocracy_ideas
-	fortification_ideas
-	administrative_ideas
+	trade_ideas
+	economic_ideas
+	innovativeness_ideas
 }
 
 historical_units = { #Celtic group
-	western_spearman_infantry
-	western_hobelar_cavalry
-	western_longbow_infantry
-	unique_ATL_yeoman_infantry
-	western_mountedarcher_cavalry
-	western_pike_infantry
-	western_gendarme_cavalry
-	western_charge_infantry
-	unique_ATL_galloglaigh_infantry
-	western_freeshooter_infantry
-	western_cuirassier_cavalry
-	western_tercio_infantry
-	western_irregular_infantry
-	western_gallop_cavalry
-	western_countermarch_infantry
-	western_volley_infantry
-	western_platoon_infantry
-	western_bayonet_infantry
-	western_carabinier_cavalry
-	western_rifled_infantry
-	western_hunter_cavalry
-	western_impulse_infantry
-	western_lancer_cavalry
-	western_breech_infantry
+	western_medieval_infantry
+	western_medieval_knights
+	gaelic_galloglaigh
+	gaelic_mercenary
+	gaelic_free_shooter
+	irish_charge
+	anglofrench_line
+	british_redcoat
+	british_hussar
+	british_square
+	mixed_order_infantry
+	open_order_cavalry
+	napoleonic_square
+	napoleonic_lancers
 }
 
 leader_names = {

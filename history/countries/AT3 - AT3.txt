@@ -1,0 +1,24 @@
+
+government = monarchy
+add_government_reform = iqta
+government_rank = 2
+mercantilism = 0.0
+primary_culture = thesrutian
+religion = sunni
+technology_group = muslim
+capital = 3099
+fixed_capital = 3099
+historical_rival = AT4
+historical_rival = AT2
+historical_rival = A1T
+
+1433.1.1 = {
+	monarch = {
+		name = "Fayiz III"
+		dynasty = "Abaza"
+		birth_date = 1396.1.1
+		DIP = 4
+		ADM = 4
+		MIL = 5
+		}
+}

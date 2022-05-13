@@ -1,0 +1,18 @@
+
+government = republic
+add_government_reform = peasants_republic
+mercantilism = 0.0
+primary_culture = romanemerita
+religion = hussite
+technology_group = western
+capital = 3171
+
+1444.1.1 = {
+	monarch = {
+		name = "In process of revolution"
+		ADM = 0
+		DIP = 0
+		MIL = 0
+		regent = yes
+	}
+}

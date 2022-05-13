@@ -1,0 +1,18 @@
+government = republic
+add_government_reform = peasants_republic
+government_rank = 1
+primary_culture = romancalydnian
+religion = catholic
+technology_group = western
+capital = 3160	
+fixed_capital = 3160 
+
+1444.1.1 = {
+	monarch = {
+		name = "Oceanian Council"
+		adm = 1
+		dip = 98
+		mil = 4
+		regent = yes
+	}
+}
