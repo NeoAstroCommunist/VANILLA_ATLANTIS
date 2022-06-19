@@ -1,0 +1,142 @@
+country_decisions = { 
+	atlantis_caliphate_nation = { 
+		major = yes
+		potential = { 
+		    AND = {
+			OR = {
+			tag = AT5
+            culture_group = atlantomuslim
+			}
+			religious_group = muslim
+			NOT = { has_country_flag = atlantis_united }
+			}
+		}
+		provinces_to_highlight = {  }
+		allow = { 
+			atlantis_superregion = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			is_at_war = no
+		}
+		effect = { 
+		    set_country_flag = atlantis_united
+			add_prestige = 15
+			override_country_name = "ATLANTISMUSLIM"
+		}
+		ai_will_do = { 
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	atlantis_punic_nation = { 
+		major = yes
+		potential = { 
+		    AND = {
+			culture_group = atlantopunic
+			NOT = { has_country_flag = atlantis_united }
+			}
+		}
+		provinces_to_highlight = {  }
+		allow = { 
+			atlantis_superregion = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			is_at_war = no
+		}
+		effect = { 
+		    set_country_flag = atlantis_united
+			add_prestige = 15
+			override_country_name = "ATLANTISPUNIC"
+		}
+		ai_will_do = { 
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	atlantis_natives_nation = { 
+		major = yes
+		potential = { 
+		    AND = {
+			OR = {
+			culture_group = westatlantean
+			culture_group = nativeatlantean
+			}
+			NOT = { has_country_flag = atlantis_united }
+			}
+		}
+		provinces_to_highlight = {  }
+		allow = { 
+			atlantis_superregion = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			is_at_war = no
+		}
+		effect = { 
+		    set_country_flag = atlantis_united
+			add_prestige = 15
+			override_country_name = "ATLANTISNATIVE"
+		}
+		ai_will_do = { 
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	atlantis_romans_nation = { 
+		major = yes
+		potential = { 
+		    AND = {
+			culture_group = romanatlantean
+			NOT = { has_country_flag = atlantis_united }
+			}
+		}
+		provinces_to_highlight = {  }
+		allow = { 
+			atlantis_superregion = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			is_at_war = no
+		}
+		effect = { 
+		    set_country_flag = atlantis_united
+			add_prestige = 15
+			override_country_name = "ATLANTISROME"
+		}
+		ai_will_do = { 
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	atlantis_norse_nation = { 
+		major = yes
+		potential = { 
+		    AND = {
+			OR = { 
+			culture = thynlander
+			culture = lognlander
+			}
+			NOT = { has_country_flag = atlantis_united }
+			}
+		}
+		provinces_to_highlight = {  }
+		allow = { 
+			atlantis_superregion = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			is_at_war = no
+		}
+		effect = { 
+		    set_country_flag = atlantis_united
+			add_prestige = 15
+			override_country_name = "ATLANTISNORSE"
+		}
+		ai_will_do = { 
+			factor = 1
+		}
+		ai_importance = 400
+	}
+}

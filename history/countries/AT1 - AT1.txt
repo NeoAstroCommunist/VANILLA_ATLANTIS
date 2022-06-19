@@ -13,6 +13,7 @@ historical_rival = AT2
 historical_neutral = A12
 
 1401.1.1 = {
+    set_country_flag = atlantis_phoenocia
 	monarch = {
 		name = "Onias II"
 		dynasty = "Magonid"

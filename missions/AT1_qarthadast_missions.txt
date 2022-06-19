@@ -1,0 +1,249 @@
+AT1_slot_2 = { 
+	slot = 2
+	generic = no
+	ai = yes
+	potential = { 
+		has_country_flag = atlantis_phoenocia
+	}
+	has_country_shield = yes
+	AT1_soldiers = { 
+		icon = mission_build_up_to_force_limit
+		required_missions = { }
+		position = 1
+		trigger = {
+		    army_size_percentage = 1
+            mil_tech = 5
+		}
+		effect = { 
+			3199 = { add_base_manpower = 2 }
+			3200 = { add_claim = AT1 }
+			3207 = { add_claim = AT1 }
+			3210 = { add_claim = AT1 }
+			3211 = { add_claim = AT1 }
+		}
+	}
+	AT1_highlands = { 
+		icon = mission_unite_home_region
+		required_missions = { AT1_become_strong }
+		position = 3
+		trigger = {
+            owns = 3201
+			owns = 3202
+			owns = 3203
+			owns = 3206
+		}
+		effect = { 
+            atlantean_highlands_east_area = { add_claim = AT1 }
+			3205 = { add_claim = AT1 }
+			3204 = { add_claim = AT1 }
+			3188 = { add_claim = AT1 }
+			3185 = { add_claim = AT1 }
+			3187 = { add_claim = AT1 }
+			3186 = { add_claim = AT1 }
+			3189 = { add_claim = AT1 }
+		}
+	}
+    AT1_theodosians = { 
+		icon = mission_unite_home_region
+		required_missions = { AT1_highlands }
+		position = 4
+		trigger = {
+            owns = 3184
+			owns = 3183
+			owns = 3182
+			owns = 3179
+		}
+		effect = { 
+            atlantean_lowlands_north_area = { add_claim = AT1 }
+			3181 = { add_claim = AT1 }
+			3177 = { add_claim = AT1 }
+			3176 = { add_claim = AT1 }
+		}
+	}
+}
+
+AT1_slot_3 = { 
+	slot = 3
+	generic = no
+	ai = yes
+	potential = { 
+		has_country_flag = atlantis_phoenocia
+	}
+	has_country_shield = yes
+	AT1_save_smart = { 
+		icon = mission_monarch_in_throne_room
+		required_missions = { }
+		position = 1
+		trigger = {
+            OR = {
+            AND = { heir_has_ruler_dynasty = yes dyansty = "Magonid" }
+            NOT = { dynasty = "Magonid" }			
+            }
+		}
+		effect = { 
+			hidden_effect = { 
+				add_stability = 1
+			}
+			tooltip = { 
+				add_stability = 1
+			}
+		}
+	}
+	
+	AT1_become_strong = { 
+		icon = defender_of_the_faith
+		required_missions = { AT1_save_smart AT1_soldiers }
+		position = 2
+		trigger = {
+		    AND = {
+            is_defender_of_faith = yes
+			owns = 3200
+			owns = 3207
+			owns = 3210
+			owns = 3211
+			}
+		}
+		effect = { 
+			add_prestige = 25
+			atlantean_lowlands_southeast_area = { add_claim = AT1 }
+		}
+	}
+	AT1_crusade_finiqia = { 
+		icon = jerusalem
+		required_missions = { AT1_become_strong AT1_ships }
+		position = 3
+		trigger = {
+		    AND = {
+            atlantean_lowlands_southeast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns = 3083
+			}
+		}
+		effect = { 
+			add_legitimacy = 20
+			add_adm = 100
+			add_dip = 100
+			add_mil = 100
+		}
+	}
+	AT1_reconquer_qartba = { 
+		icon = mission_crusade_for_varna
+		required_missions = { AT1_crusade_finiqia }
+		position = 3
+		trigger = {
+		    AND = {
+            atlantean_lowlands_southwest_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns = 3090
+			AT2 = { exists = NO }
+			}
+		}
+		effect = { 
+			add_legitimacy = 25
+			add_prestige = 25
+			add_power_projection = {
+				type = mission_rewards_power_projection
+				amount = 50
+			}
+			south_atlantis_region = { add_claim = AT1 }
+			3090 = { change_province_name = "Qart Phoenicia" }
+		}
+	}
+	AT1_victory = { 
+		icon = mission_monarch_in_throne_room
+		required_missions = { AT1_reconquer_qartba AT1_theodosians AT1_BIG_port }
+		position = 3
+		trigger = {
+		    legitimacy = 90
+		}
+		effect = { 
+			override_country_name = "ATLANTISPUNIC"
+			set_country_flag = AT1_victory_atlantis
+		}
+	}
+}
+
+AT1_slot_4 = { 
+	slot = 4
+	generic = no
+	ai = yes
+	potential = { 
+		has_country_flag = atlantis_phoenocia
+	}
+	has_country_shield = yes
+	AT1_ships = { 
+		icon = mission_hanseatic_city
+		required_missions = { }
+		position = 2
+		trigger = {
+		    navy_size_percentage = 1
+            dip_tech = 6
+		}
+		effect = { 
+		    east_atlantean_archipelago_area = { add_claim = AT1 }
+			west_atlantean_archipelago_area = { add_claim = AT1 }
+			if = {
+				limit = {
+					3199 = {
+						num_free_building_slots = 1
+						NOT = {
+							has_building = shipyard
+						}
+						NOT = {
+							has_building = grand_shipyard
+						}
+					}
+				}
+				3199 = {
+					add_building = shipyard
+				}
+			}
+		}
+	}
+	AT1_muslim_islands = { 
+		icon = mission_spanish_armada
+		required_missions = { AT1_ships }
+		position = 2
+		trigger = {
+		    east_atlantean_archipelago_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			west_atlantean_archipelago_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = { 
+		    add_treasury = 500
+		}
+	}
+	AT1_BIG_port = { 
+		icon = mission_war_chest
+		required_missions = { AT1_muslim_islands }
+		position = 2
+		trigger = {
+		    3199 = { province_has_center_of_trade_of_level = 3 }
+		}
+		effect = { 
+		    if = {
+				limit = {
+					is_institution_enabled = renaissance						
+					capital_scope = {
+						NOT = { renaissance = 100 }
+					}
+				}
+				capital_scope = {
+					add_institution_embracement = {
+						which = renaissance
+						value = 75
+					}
+				}
+			}
+		}
+	}
+}
