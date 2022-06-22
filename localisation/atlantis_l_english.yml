@@ -239,3 +239,6 @@
  TRADE_COMPANY_WEST_ATLANTIS_Atlantis_Trade_Company:0 "West Atlantis Trade Company"
  trade_company_east_atlantis: "East Atlantean Charter"
  trade_company_west_atlantis: "West Atlantean Charter"
+ #Great projects
+ salonae_city_title:0 "Atlantean Senate"
+ salonae_city:0 "Atlantean Senate"

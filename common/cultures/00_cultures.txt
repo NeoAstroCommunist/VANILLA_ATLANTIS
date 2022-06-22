@@ -4087,7 +4087,7 @@ nativeatlantean = {
 	}
 }
 romanatlantean = {
-	graphical_culture = westerngfx
+	graphical_culture = easterngfx
 	romansithon = {
 		male_names = {
 			Amtnie Amuni Anche Anthai Aninas Arunth Araz Arzni Arnth Autu Aule Cei Ceile Ceisi

@@ -1,0 +1,274 @@
+coastalpunic_ideas = { 
+	start = { global_foreign_trade_power = 0.1 prestige_decay = -0.01 }
+	bonus = { navy_tradition = 1 }
+	trigger = { 
+		OR = { 
+			tag = AT1
+		}
+		NOT = { 
+			is_colonial_nation = yes
+		}
+	}
+	free = yes
+	coastalpunic_ideas_1 = { 
+		naval_forcelimit_modifier = 0.15
+		sailors_recovery_speed = 0.1
+	}
+	coastalpunic_ideas_2 = { 
+		trade_range_modifier = 0.50
+	}
+	coastalpunic_ideas_3 = { 
+		diplomatic_reputation = 1
+	}
+	coastalpunic_ideas_4 = { 
+		defensiveness = 0.20
+	}
+	coastalpunic_ideas_5 = { 
+		prestige = 0.2
+	}
+	coastalpunic_ideas_6 = { 
+		diplomats = 1
+		diplomatic_upkeep = 1
+	}
+	coastalpunic_ideas_7 = { 
+		ae_impact = -0.10
+		years_of_nationalism = -5
+	}
+}
+
+zahavian_ideas = { 
+	start = { discipline = 0.05 }
+	bonus = { land_forcelimit_modifier = 0.33 }
+	trigger = { 
+		OR = { 
+			tag = A2T
+		}
+		NOT = { 
+			is_colonial_nation = yes
+		}
+	}
+	free = yes
+	zahavia_ideas_1 = { 
+		core_creation = -0.20
+	}
+	zahavia_ideas_2 = { 
+		manpower_recovery_speed = 0.2
+	}
+	zahavia_ideas_3 = { 
+		defensiveness = 0.15
+		prestige = 0.5	
+	}
+	zahavia_ideas_4 = { 
+		artillery_power = 0.1
+	}
+	zahavia_ideas_5 = { 
+		prestige = 0.2
+	}
+	zahavia_ideas_6 = { 
+		diplomats = 1
+		diplomatic_upkeep = 1
+	}
+	zahavia_ideas_7 = { 
+		ae_impact = -0.10
+		years_of_nationalism = -5
+	}
+}
+
+inlandpunic_ideas = { 
+	start = { global_unrest = -1 global_manpower_modifier = 0.1 }
+	bonus = { state_maintenance_modifier = -0.15 }
+	trigger = { 
+		OR = { 
+			tag = AT6
+			tag = AT7
+			tag = AT8
+			tag = AT9
+		}
+		NOT = { 
+			is_colonial_nation = yes
+		}
+	}
+	free = yes
+	inlandpunic_ideas_1 = { 
+		infantry_power = 0.05
+		shock_damage_received = -0.075
+	}
+	inlandpunic_ideas_2 = { 
+		yearly_corruption = -0.15
+	}
+	inlandpunic_ideas_3 = { 
+		num_accepted_cultures = 2
+		promote_culture_cost = -0.25
+	}
+	inlandpunic_ideas_4 = { 
+		build_cost = -0.05
+		build_time = -0.15
+	}
+	inlandpunic_ideas_5 = { 
+		improve_relation_modifier = 0.10
+		diplomatic_upkeep = 1
+	}
+	inlandpunic_ideas_6 = { 
+		global_trade_goods_size_modifier = 0.025
+	}
+	inlandpunic_ideas_7 = { 
+		center_of_trade_upgrade_cost = -0.1
+	}
+}
+
+latinatlantic_ideas = { 
+	start = { core_creation = -0.1  infantry_power = 0.15 }
+	bonus = { discipline = 0.05 }
+	trigger = { 
+		culture_group = romanatlantean
+		NOT = { 
+			is_colonial_nation = yes
+		}
+	}
+	free = yes
+	latinatlantic_ideas_1 = { 
+		diplomatic_reputation = 1
+		papal_influence = 1
+	}
+	latinatlantic_ideas_2 = { 
+		culture_conversion_cost = -0.20
+		movement_speed_onto_off_boat_modifier = 0.20
+	}
+	latinatlantic_ideas_3 = { 
+		center_of_trade_upgrade_cost = -0.05
+		trade_range_modifier = 0.25
+	}
+	latinatlantic_ideas_4 = { 
+		legitimacy = 0.1
+		land_morale = 0.10
+	}
+	latinatlantic_ideas_5 = { 
+		diplomatic_reputation = 0.5
+		diplomatic_upkeep = 1
+	}
+	latinatlantic_ideas_6 = { 
+		build_cost = -0.15
+		build_time = -0.15
+	}
+	latinatlantic_ideas_7 = { 
+		production_efficiency = 0.1
+		global_trade_power = 0.1
+	}
+}
+
+muslimatlantic_ideas = { 
+	start = { light_ship_cost = -0.10 diplomatic_upkeep = 1 }
+	bonus = { leader_land_shock = 1 }
+	trigger = { 
+	    OR = {
+		culture_group = atlantomuslim
+		tag = AT5
+		}
+		NOT = { 
+			is_colonial_nation = yes
+		}
+	}
+	free = yes
+	muslimatlantic_ideas_1 = { 
+		tolerance_own = 1
+		global_missionary_strength = 0.02
+	}
+	muslimatlantic_ideas_2 = { 
+		privateer_efficiency = 0.30
+	}
+	muslimatlantic_ideas_3 = { 
+		administrative_efficiency = 0.025
+	}
+	muslimatlantic_ideas_4 = { 
+		global_own_trade_power = 0.10
+		cavalry_power = 0.10
+	}
+	muslimatlantic_ideas_5 = { 
+		manpower_recovery_speed = 0.20
+		reinforce_cost_modifier = -0.20
+	}
+	muslimatlantic_ideas_6 = { 
+		prestige = 0.20
+		core_creation = -0.1
+	}
+	muslimatlantic_ideas_7 = { 
+		warscore_cost_vs_other_religion = -0.15
+	}
+}
+
+westatlantic_ideas = { 
+	start = { fabricate_claims_cost = -0.25 cavalry_cost = -0.10 }
+	bonus = { prestige_decay = -0.01 }
+	trigger = { 
+	    OR = {
+		culture_group = westatlantean
+		}
+		NOT = { 
+			is_colonial_nation = yes
+		}
+	}
+	free = yes
+	westatlantic_ideas_1 = { 
+		legitimacy = 0.3
+	}
+	westatlantic_ideas_2 = { 
+		cavalry_power = 0.15
+		cav_to_inf_ratio = 0.1
+		mil_tech_cost_modifier = 0.05
+	}
+	westatlantic_ideas_3 = { 
+		advisor_pool = 1
+		free_leader_pool = 1
+	}
+	westatlantic_ideas_4 = { 
+		global_autonomy = -0.05
+	}
+	westatlantic_ideas_5 = { 
+		unjustified_demands = -0.3
+	}
+	westatlantic_ideas_6 = { 
+		diplomatic_reputation = 1
+		improve_relation_modifier = 0.15
+	}
+	westatlantic_ideas_7 = { 
+		idea_cost = -0.05
+	}
+}
+
+nativeatlantic_ideas = { 
+	start = { improve_relation_modifier = -0.15 tolerance_heathen = 2  }
+	bonus = { development_cost = -0.1 }
+	trigger = { 
+	    OR = {
+		culture_group = nativeatlantean
+		tag = A14
+		}
+		NOT = { 
+			is_colonial_nation = yes
+		}
+	}
+	free = yes
+	nativeatlantic_ideas_1 = { 
+		infantry_power = 0.05
+		shock_damage_received = -0.075
+	}
+	nativeatlantic_ideas_2 = { 
+		leader_naval_manuever = 1
+	}
+	nativeatlantic_ideas_3 = { 
+		ae_impact = -0.20
+	}
+	nativeatlantic_ideas_4 = { 
+		defensiveness = 0.20
+	}
+	nativeatlantic_ideas_5 = { 
+		unjustified_demands = -0.3
+	}
+	nativeatlantic_ideas_6 = { 
+		hostile_attrition = 1
+	}
+	nativeatlantic_ideas_7 = { 
+		idea_cost = -0.05
+		institution_spread_from_true_faith = 0.10
+	}
+}
