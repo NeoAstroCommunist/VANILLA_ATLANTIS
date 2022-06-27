@@ -1,0 +1,463 @@
+A11_slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = { tag = A11 AND = { was_tag = A11 tag = ATL } }
+	}
+
+	A11_soldiers = {
+		icon = mission_build_up_to_force_limit
+		position = 2
+		required_missions = {  }
+		trigger = {
+			AND = { army_size_percentage = 1 manpower_percentage = 0.50 mil_tech = 5 }
+		}
+		effect = {
+			create_general = { tradition = 75 }
+			add_country_modifier = { name = A11_army_discipline duration = 7300 }
+		}
+	}
+	A11_economic_ideas = {
+		icon = mission_dominate_home_trade_node
+		position = 5
+		required_missions = {  }
+		trigger = {
+			economic_ideas = 4
+		}
+		effect = {
+			add_mercantilism = 5
+		}
+	}
+	A11_loans = {
+		icon = mission_have_manufactories
+		position = 6
+		required_missions = { A11_economic_ideas }
+		trigger = {
+			AND = { years_of_income = 3 3174 = { num_free_building_slots = 0 } }
+		}
+		effect = {
+			add_country_modifier = { name = A11_proscriptions duration = 7300 }
+		}
+	}
+	A11_theodosia = {
+		icon = mission_italian_condottiere
+		position = 9
+		required_missions = { A11_update_army }
+		provinces_to_highlight = {
+			OR = { province_id = 3177 province_id = 3179 province_id = 3181 province_id = 3182 province_id = 3183 province_id = 3184 }
+		}
+		trigger = {
+			AND = { 3177 = { owned_by = ROOT } 3179 = { owned_by = ROOT } 3181 = { owned_by = ROOT } 3182 = { owned_by = ROOT } 3183 = { owned_by = ROOT } 3184 = { owned_by = ROOT } }
+		}
+		effect = {
+			add_adm_power = 100
+		}
+	}
+}
+
+A11_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = { tag = A11 AND = { was_tag = A11 tag = ATL } }
+	}
+
+	A11_papal_friend = {
+		icon = mission_religious
+		position = 1
+		required_missions = {  }
+		trigger = {
+			OR = { PAP = { has_opinion = { who = ROOT value = 80 } } NOT = { religion = catholic } }
+		}
+		effect = {
+			IF = { limit = { AND = { tag = A11 religion = catholic } } add_papal_influence = 25 set_country_flag = A11_pope_buddy } ELSE = { set_country_flag = A11_stands_alone }
+		}
+	}
+	A11_find_allies = {
+		icon = mission_landsknecht_soldier
+		position = 2
+		required_missions = { A11_papal_friend }
+		trigger = {
+			num_of_allies = 2
+		}
+		effect = {
+			every_ally = { add_trust = { who = ROOT value = 20 mutual = yes } }
+		}
+	}
+	A11_caprera = {
+		icon = mission_pf_map_table
+		position = 3
+		required_missions = { A11_soldiers A11_find_allies A11_build_navy }
+		provinces_to_highlight = {
+			province_id = 3173
+		}
+		trigger = {
+			AND = {
+				3173 = { NOT = { owned_by = A11 } }
+				manpower_percentage = 1.0
+			}
+		}
+		effect = {
+			3173 = { owner = { country_event = { id = A11_caprera_mail days = 5 } } }
+		}
+	}
+	A11_reintegrate_caprera = {
+		icon = mission_pf_map_table
+		position = 4
+		required_missions = { A11_caprera }
+		provinces_to_highlight = {
+			province_id = 3173
+		}
+		trigger = {
+			AND = {
+				owns = 3173
+				is_at_war = no
+				3173 = { NOT = { local_autonomy = 30 } }
+			}
+		}
+		effect = {
+			3173 = { add_province_modifier = { name = A11_caprera_restored duration = -1 } IF = { limit = { NOT = { has_building = fort_15th } } start_building_construction = { building = fort_15th speed = 1 cost = 0 } } ELSE = { add_base_manpower = 2 } }
+		}
+	}
+	A11_reconquer_arpinium = {
+		icon = mission_pf_soldier
+		position = 5
+		required_missions = { A11_reintegrate_caprera }
+		provinces_to_highlight = {
+			province_id = 3172
+		}
+		trigger = {
+			3172 = { owned_by = A11 }
+		}
+		effect = {
+			3172 = { add_devastation = -15 add_prosperity = 15 }
+		}
+	}
+	A11_return_all_cores = {
+		icon = mission_unite_home_region
+		position = 6
+		required_missions = { A11_reconquer_arpinium }
+		provinces_to_highlight = {
+			area = atlantean_lowlands_north_area
+		}
+		trigger = {
+			atlantean_lowlands_north_area = { type = all owned_by = ROOT }
+		}
+		effect = {
+			add_yearly_manpower = 10
+		}
+	}
+	A11_restore_salonae = {
+		icon = mission_eastern_european_city
+		position = 7
+		required_missions = { A11_loans A11_return_all_cores A11_grain_production }
+		provinces_to_highlight = {
+			area = atlantean_lowlands_north_area
+			OR = { NOT = { owned_by = ROOT } local_autonomy = 25 }
+		}
+		trigger = {
+			atlantean_lowlands_north_area = { type = all owned_by = ROOT NOT = { local_autonomy = 25 } }
+		}
+		effect = {
+			add_mana_scaled_on_monarch_skill = yes
+			atlantean_lowlands_north_area  = { if = { limit = { owner = { has_dlc = "Mandate of Heaven" } } add_devastation = -10 add_prosperity = 25 } else = { add_devastation = -10 } }
+		}
+	}
+	A11_update_army = {
+		icon = mission_assemble_an_army
+		position = 8
+		required_missions = { A11_restore_salonae }
+		trigger = {
+			army_reformer = 2
+			army_professionalism = 0.08
+		}
+		effect = {
+			add_army_professionalism = 0.02
+			create_general = { tradition = 100 }
+		}
+	}
+	A11_thermopylae = {
+		icon = mission_teutonic_knights
+		position = 9
+		required_missions = { A11_update_army }
+		provinces_to_highlight = {
+			province_id = 3176
+		}
+		trigger = {
+			3176 = { owned_by = ROOT }
+		}
+		effect = {
+			add_dip_power = 100
+		}
+	}
+	A11_atlantis = {
+		icon = mission_empire
+		position = 10
+		required_missions = { A11_theodosia A11_thermopylae A11_magnusia }
+		provinces_to_highlight = {
+			OR = { area = atlantean_northwest_area province_id = 3164 province_id = 3152 province_id = 3176 province_id = 3177 province_id = 3179 province_id = 3181 province_id = 3182 province_id = 3183 province_id = 3184 area = atlantean_lowlands_north_area }
+		}
+		trigger = {
+			AND = { atlantean_lowlands_north_area = { type = all owned_by = ROOT } atlantean_northwest_area = { type = all owned_by = ROOT } 3164 = { owned_by = ROOT } 3152 = { owned_by = ROOT } 3176 = { owned_by = ROOT } 3177 = { owned_by = ROOT } 3179 = { owned_by = ROOT } 3181 = { owned_by = ROOT } 3182 = { owned_by = ROOT } 3183 = { owned_by = ROOT } 3184 = { owned_by = ROOT } }
+		}
+		effect = {
+			country_event = { id = A11_form_atlantis }
+		}
+	}
+}
+
+A11_slot_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = { tag = A11 AND = { was_tag = A11 tag = ATL } }
+	}
+
+	A11_renaissance_time = {
+		icon = mission_noble_council
+		position = 2
+		required_missions = { A11_papal_friend A11_build_harbour }
+		trigger = {
+			AND = {
+				is_institution_enabled = renaissance
+				any_known_country = { has_institution = renaissance has_opinion = { who = A11 value = 75 } }
+			}
+		}
+		effect = {
+			capital_scope = { add_institution_embracement = { which = renaissance value = 75  } }
+			define_advisor = { type = artist skill = 2 culture = romansithon religion = catholic cost_multiplier = 0.5 }
+		}
+	}
+	A11_world_port = {
+		icon = mission_trade_company_region_abroad
+		position = 3
+		required_missions = { A11_build_navy }
+		provinces_to_highlight = {
+			province_id = 3174
+		}
+		trigger = {
+			3174 = { province_has_center_of_trade_of_level = 3 }
+		}
+		effect = {
+			3174 = { add_province_modifier = { name = A11_world_port duration = -1 } }
+		}
+	}
+	A11_develop_salonae = {
+		icon = mission_high_income
+		position = 4
+		required_missions = {  }
+		trigger = {
+			3174 = { development = 35 has_building = workshop }
+		}
+		effect = {
+			3174 = { add_province_modifier = { name = A11_paper_quality duration = -1 } }
+		}
+	}
+	A11_arpinium_dye = {
+		icon = mission_have_manufactories
+		position = 5
+		required_missions = { A11_develop_salonae }
+		trigger = {
+			AND = { 3172 = { development = 25 has_building = workshop } 3172 = { owned_by = A11 } }
+		}
+		effect = {
+			3172 = { add_province_modifier = { name = A11_roman_red duration = -1 } }
+		}
+	}
+	A11_grain_production = {
+		icon = mission_rice_field
+		position = 6
+		required_missions = { A11_arpinium_dye }
+		trigger = {
+			development_in_provinces = { trade_goods = grain value = 80 }
+		}
+		effect = {
+			hidden_effect = {
+				random_owned_province = {
+					limit = {
+						trade_goods = grain
+						NOT = {
+							any_province = {
+								owned_by = ROOT
+								trade_goods = grain
+								total_development = PREV
+							}
+						}
+					}
+					add_province_modifier = {
+						name = A11_shameless_copypast
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+	A11_magnusia = {
+		icon = mission_steppe_warriors
+		position = 9
+		required_missions = { A11_update_army }
+		provinces_to_highlight = {
+			OR = { area = atlantean_northwest_area
+			province_id = 3164 province_id = 3152 }
+		}
+		trigger = {
+			AND = { atlantean_northwest_area = { type = all owned_by = ROOT } 3164 = { owned_by = ROOT } 3152 = { owned_by = ROOT } }
+		}
+		effect = {
+			add_mil_power = 100
+		}
+	}
+}
+
+A11_slot_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = { tag = A11 AND = { was_tag = A11 tag = ATL } }
+	}
+
+	A11_build_harbour = {
+		icon = mission_hanseatic_city
+		position = 1
+		required_missions = {  }
+		trigger = {
+			3174 = { AND = { has_building = shipyard base_production = 10 } }
+		}
+		effect = {
+			add_country_modifier = { name = A11_sailors_ship_maintenance duration = 3750 }
+		}
+	}
+	A11_build_navy = {
+		icon = mission_galleys_in_port
+		position = 2
+		required_missions = { A11_build_harbour }
+		trigger = {
+			AND = { num_of_light_ship = 18 has_flagship = yes }
+		}
+		effect = {
+			add_yearly_sailors = 5
+		}
+	}
+	A11_pressure_oceania = {
+		icon = mission_invade_island
+		position = 3
+		required_missions = { A11_build_navy }
+		provinces_to_highlight = {
+			owned_by = A13
+		}
+		trigger = {
+			AND = {
+				army_size = A13
+				navy_size = A13
+				total_development = A13
+			}
+		}
+		effect = {
+			A13 = { country_event = { id = A11_oceania_yougotmail days = 5 } }
+		}
+	}
+	A11_restore_islands = {
+		icon = mission_establish_high_seas_navy
+		position = 4
+		required_missions = { A11_pressure_oceania }
+		provinces_to_highlight = {
+			OR = { province_id = 3154 province_id = 3155 province_id = 3163 }
+		}
+		trigger = {
+		    AND = {
+			owns_or_non_sovereign_subject_of = 3154 owns_or_non_sovereign_subject_of = 3155
+			owns_or_non_sovereign_subject_of = 3163
+			}
+		}
+		effect = {
+			add_navy_tradition = 25
+		}
+	}
+}
+
+A11_slot_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = { tag = A11 AND = { was_tag = A11 tag = ATL } }
+	}
+
+	A11_church = {
+		icon = mission_hands_praying
+		position = 2
+		required_missions = { A11_papal_friend }
+		provinces_to_highlight = {
+			province_id = 3174
+		}
+		trigger = {
+			3174 = { has_tax_building_trigger = yes }
+		}
+		effect = {
+			add_country_modifier = { name = A11_religion duration 3750 } capital_scope = { IF = { limit = { religion = catholic has_cardinal = no } add_cardinal = yes } ELSE = { add_prestige = 20 } }
+		}
+	}
+	A11_heresy_decision = {
+		icon = mission_pf_cross
+		position = 3
+		required_missions = { A11_church }
+		trigger = {
+			OR = { innovativeness_ideas = 4 religious_ideas = 4 }
+		}
+		effect = {
+			IF = { limit = { innovativeness_ideas = 4 } set_country_flag = A11_heresy } ELSE = { set_country_flag = A11_pious add_country_modifier = { name = A11_religious_taxation duration = 7300 } }
+		}
+	}
+}
+
+A11_slot_1_heresy = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			AND = { was_tag = A11 has_country_flag = A11_heresy }
+			AND = { tag = A11 has_country_flag = A11_heresy }
+		}
+	}
+
+	A11_heresy_stronghold = {
+		icon = mission_luther_theses
+		position = 4
+		required_missions = { A11_caprera A11_heresy_decision }
+		trigger = {
+		AND = {	OR = { religion = hussite religion = protestant religion = reformed } 3173 = { religion = hussite } 3174 = { religion = hussite } }
+		}
+		effect = {
+			add_country_modifier = { name = A11_heretic_fervor duration = 7300 }
+		}
+	}
+	A11_spartacus = {
+		icon = mission_settlers_north_america
+		position = 5
+		required_missions = { A11_heresy_stronghold }
+		trigger = {
+			3171 = { AND = { religion = hussite owned_by = A11 } }
+			3170 = { AND = { religion = hussite owned_by = A11 } }
+		}
+		effect = {
+			add_country_modifier = { name = A11_tabor_army duration = -1 }
+		}
+	}
+	A11_defender_heresy = {
+		icon = mission_crusade_for_varna
+		position = 6
+		required_missions = { A11_spartacus }
+		trigger = {
+			AND = { is_defender_of_faith = yes religion = hussite }
+		}
+		effect = {
+			A11 = { every_owned_province = { limit = { AND = { religion = hussite continent = atlantis } } add_base_manpower = 1 } }
+		}
+	}
+}
+

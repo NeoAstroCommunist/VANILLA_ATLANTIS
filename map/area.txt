@@ -3775,7 +3775,7 @@ atlantean_lowlands_west_area = {
 }
 
 atlantean_lowlands_north_area = {
-    3171 3172 3173 3174 3175 3178 3180
+    3172 3173 3174 3175 3178 3180
 }
 
 atlantean_miedzygorski_area = {
@@ -3839,7 +3839,7 @@ atlantean_north_area = {
 }
 
 atlantean_northwest_area = {
-    3166 3167 3168 3169 3170
+    3166 3167 3168 3169 3170 3171
 }
 
 atlantean_real_northeast_area = {

@@ -127,8 +127,8 @@ latinatlantic_ideas = {
 	}
 	free = yes
 	latinatlantic_ideas_1 = { 
-		diplomatic_reputation = 1
-		papal_influence = 1
+		development_cost = -0.1
+		global_tax_modifier = 0.1
 	}
 	latinatlantic_ideas_2 = { 
 		culture_conversion_cost = -0.20
@@ -143,7 +143,7 @@ latinatlantic_ideas = {
 		land_morale = 0.10
 	}
 	latinatlantic_ideas_5 = { 
-		diplomatic_reputation = 0.5
+		diplomatic_reputation = 1
 		diplomatic_upkeep = 1
 	}
 	latinatlantic_ideas_6 = { 
