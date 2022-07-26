@@ -4,6 +4,7 @@
  add_claim = A13
  culture = romanoean
  religion = catholic
+ trade_goods = fish
  is_city = yes
  hre = no
  base_tax = 1

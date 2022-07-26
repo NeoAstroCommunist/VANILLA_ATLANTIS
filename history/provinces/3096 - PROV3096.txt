@@ -4,11 +4,13 @@
  add_core = AT2
  culture = thesrutian
  religion = sunni
+ trade_goods = cloth
  is_city = yes
  hre = no
  base_tax = 2
  base_production = 4
  base_manpower = 6
+ latent_trade_goods =  { coal }
  discovered_by = eastern
  discovered_by = western
  discovered_by = muslim

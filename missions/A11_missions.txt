@@ -11,7 +11,7 @@ A11_slot_2 = {
 		position = 2
 		required_missions = {  }
 		trigger = {
-			AND = { army_size_percentage = 1 manpower_percentage = 0.50 mil_tech = 5 }
+			AND = { army_size_percentage = 1 manpower_percentage = 0.50 mil_tech = 4 }
 		}
 		effect = {
 			create_general = { tradition = 75 }
@@ -23,10 +23,11 @@ A11_slot_2 = {
 		position = 5
 		required_missions = {  }
 		trigger = {
-			economic_ideas = 4
+			share_of_starting_income = 3.5
 		}
 		effect = {
 			add_mercantilism = 5
+			add_years_of_income = 10
 		}
 	}
 	A11_loans = {
@@ -34,10 +35,10 @@ A11_slot_2 = {
 		position = 6
 		required_missions = { A11_economic_ideas }
 		trigger = {
-			AND = { years_of_income = 3 3174 = { num_free_building_slots = 0 } }
+			AND = { years_of_income = 3 3174 = { AND = { has_building = marketplace has_tax_building_trigger = yes has_building = workshop } } }
 		}
 		effect = {
-			add_country_modifier = { name = A11_proscriptions duration = 7300 }
+			add_country_modifier = { name = A11_proscriptions duration = 7300 } add_years_of_income = -3
 		}
 	}
 	A11_theodosia = {
@@ -100,7 +101,7 @@ A11_slot_3 = {
 			}
 		}
 		effect = {
-			3173 = { owner = { country_event = { id = A11_caprera_mail days = 5 } } }
+			3173 = { owner = { country_event = { id = atlantis_A11.1 days = 5 } } }
 		}
 	}
 	A11_reintegrate_caprera = {
@@ -114,11 +115,11 @@ A11_slot_3 = {
 			AND = {
 				owns = 3173
 				is_at_war = no
-				3173 = { NOT = { local_autonomy = 30 } }
+				3173 = { development = 20 NOT = { devastation = 1 } }
 			}
 		}
 		effect = {
-			3173 = { add_province_modifier = { name = A11_caprera_restored duration = -1 } IF = { limit = { NOT = { has_building = fort_15th } } start_building_construction = { building = fort_15th speed = 1 cost = 0 } } ELSE = { add_base_manpower = 2 } }
+			3173 = { add_province_modifier = { name = A11_caprera_restored duration = -1 } }
 		}
 	}
 	A11_reconquer_arpinium = {
@@ -158,11 +159,11 @@ A11_slot_3 = {
 			OR = { NOT = { owned_by = ROOT } local_autonomy = 25 }
 		}
 		trigger = {
-			atlantean_lowlands_north_area = { type = all owned_by = ROOT NOT = { local_autonomy = 25 } }
+			atlantean_lowlands_north_area = { type = all owned_by = ROOT NOT = { devastation = 1 } }
 		}
 		effect = {
 			add_mana_scaled_on_monarch_skill = yes
-			atlantean_lowlands_north_area  = { if = { limit = { owner = { has_dlc = "Mandate of Heaven" } } add_devastation = -10 add_prosperity = 25 } else = { add_devastation = -10 } }
+			atlantean_lowlands_north_area  = { if = { limit = { owner = { has_dlc = "Mandate of Heaven" } } add_prosperity = 25 } else = { add_prestige = 25 } }
 		}
 	}
 	A11_update_army = {
@@ -172,10 +173,13 @@ A11_slot_3 = {
 		trigger = {
 			army_reformer = 2
 			army_professionalism = 0.08
+			years_of_income = 5
 		}
 		effect = {
+			add_years_of_income = -5
 			add_army_professionalism = 0.02
 			create_general = { tradition = 100 }
+			atlantean_northwest_area = { add_permanent_claim = A11 } 3164 = { add_permanent_claim = A11 } 3152 = { add_permanent_claim = A11 } 3176 = { add_permanent_claim = A11 } 3177 = { add_permanent_claim = A11 } 3179 = { add_permanent_claim = A11 } 3181 = { add_permanent_claim = A11 } 3182 = { add_permanent_claim = A11 } 3183 = { add_permanent_claim = A11 } 3184 = { add_permanent_claim = A11 }
 		}
 	}
 	A11_thermopylae = {
@@ -203,7 +207,33 @@ A11_slot_3 = {
 			AND = { atlantean_lowlands_north_area = { type = all owned_by = ROOT } atlantean_northwest_area = { type = all owned_by = ROOT } 3164 = { owned_by = ROOT } 3152 = { owned_by = ROOT } 3176 = { owned_by = ROOT } 3177 = { owned_by = ROOT } 3179 = { owned_by = ROOT } 3181 = { owned_by = ROOT } 3182 = { owned_by = ROOT } 3183 = { owned_by = ROOT } 3184 = { owned_by = ROOT } }
 		}
 		effect = {
-			country_event = { id = A11_form_atlantis }
+			change_tag = ATL
+			if = {
+				limit = { is_revolutionary = no is_monarchy = yes }
+				add_government_reform = aurichian_monarchy
+			}
+			if = {
+				limit = { is_revolutionary = no is_republic = yes }
+				add_government_reform = aurichian_republic
+			}
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			northeast_atlantis_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ATL
+			}
+			add_prestige = 25
+			set_country_flag = formed_atlantis_flag
+			complete_mission = A12_atlantis
+			complete_mission = A11_atlantis
+			complete_mission = A10_atlantis
+			swap_non_generic_missions = yes
 		}
 	}
 }
@@ -221,9 +251,12 @@ A11_slot_4 = {
 		position = 2
 		required_missions = { A11_papal_friend A11_build_harbour }
 		trigger = {
-			AND = {
-				is_institution_enabled = renaissance
-				any_known_country = { has_institution = renaissance has_opinion = { who = A11 value = 75 } }
+			custom_trigger_tooltip = {
+				tooltip = A11_renaissance_tooltip
+				AND = {
+					is_institution_enabled = renaissance
+					any_known_country = { has_institution = renaissance has_opinion = { who = ROOT value = 75 } }
+				}
 			}
 		}
 		effect = {
@@ -272,27 +305,10 @@ A11_slot_4 = {
 		position = 6
 		required_missions = { A11_arpinium_dye }
 		trigger = {
-			development_in_provinces = { trade_goods = grain value = 80 }
+			3180 = { development = 15 }
 		}
 		effect = {
-			hidden_effect = {
-				random_owned_province = {
-					limit = {
-						trade_goods = grain
-						NOT = {
-							any_province = {
-								owned_by = ROOT
-								trade_goods = grain
-								total_development = PREV
-							}
-						}
-					}
-					add_province_modifier = {
-						name = A11_shameless_copypast
-						duration = -1
-					}
-				}
-			}
+			3180 = { add_province_modifier = { name = A11_shameless_copypast duration = -1 } }
 		}
 	}
 	A11_magnusia = {
@@ -325,10 +341,10 @@ A11_slot_5 = {
 		position = 1
 		required_missions = {  }
 		trigger = {
-			3174 = { AND = { has_building = shipyard base_production = 10 } }
+			3174 = {  base_production = 12 }
 		}
 		effect = {
-			add_country_modifier = { name = A11_sailors_ship_maintenance duration = 3750 }
+			3174 = { add_province_modifier = { name = A11_sailors_ship_maintenance duration = 3750 } }
 		}
 	}
 	A11_build_navy = {
@@ -336,7 +352,7 @@ A11_slot_5 = {
 		position = 2
 		required_missions = { A11_build_harbour }
 		trigger = {
-			AND = { num_of_light_ship = 18 has_flagship = yes }
+			AND = { num_of_light_ship = 12 }
 		}
 		effect = {
 			add_yearly_sailors = 5
@@ -351,13 +367,14 @@ A11_slot_5 = {
 		}
 		trigger = {
 			AND = {
+				is_at_war = no
 				army_size = A13
 				navy_size = A13
 				total_development = A13
 			}
 		}
 		effect = {
-			A13 = { country_event = { id = A11_oceania_yougotmail days = 5 } }
+			If = { limit = { A13 = { exists = yes } } A13 = { country_event = { id = atlantis_A11.4 days = 5 } } } else = { atlantean_northern_archipelago_east_area = { add_permanent_claim = A11 } atlantean_northern_archipelago_west_area = { add_permanent_claim = A11 }  }
 		}
 	}
 	A11_restore_islands = {
@@ -368,9 +385,9 @@ A11_slot_5 = {
 			OR = { province_id = 3154 province_id = 3155 province_id = 3163 }
 		}
 		trigger = {
-		    AND = {
-			owns_or_non_sovereign_subject_of = 3154 owns_or_non_sovereign_subject_of = 3155
-			owns_or_non_sovereign_subject_of = 3163
+			AND = {
+				owns_or_non_sovereign_subject_of = 3154 owns_or_non_sovereign_subject_of = 3155
+				owns_or_non_sovereign_subject_of = 3163
 			}
 		}
 		effect = {
@@ -409,7 +426,7 @@ A11_slot_1 = {
 			OR = { innovativeness_ideas = 4 religious_ideas = 4 }
 		}
 		effect = {
-			IF = { limit = { innovativeness_ideas = 4 } set_country_flag = A11_heresy } ELSE = { set_country_flag = A11_pious add_country_modifier = { name = A11_religious_taxation duration = 7300 } }
+			IF = { limit = { innovativeness_ideas = 4 } ROOT  = { set_country_flag = A11_heretic } } ELSE_IF = { limit = { AND = { innovativeness_ideas = 4 religious_ideas = 4 } } ROOT = { set_country_flag = A11_messalian } } ELSE = { ROOT = { set_country_flag = A11_pious } add_country_modifier = { name = A11_religious_taxation duration = 7300 } } swap_non_generic_missions = yes
 		}
 	}
 }
@@ -420,8 +437,8 @@ A11_slot_1_heresy = {
 	ai = yes
 	potential = {
 		OR = {
-			AND = { was_tag = A11 has_country_flag = A11_heresy }
-			AND = { tag = A11 has_country_flag = A11_heresy }
+			AND = { was_tag = A11 has_country_flag = A11_heretic }
+			AND = { tag = A11 has_country_flag = A11_heretic }
 		}
 	}
 
@@ -430,7 +447,7 @@ A11_slot_1_heresy = {
 		position = 4
 		required_missions = { A11_caprera A11_heresy_decision }
 		trigger = {
-		AND = {	OR = { religion = hussite religion = protestant religion = reformed } 3173 = { religion = hussite } 3174 = { religion = hussite } }
+			AND = { ROOT = { OR = { religion = hussite religion = messalian } } 3173 = { OR = { religion = hussite religion = messalian } } 3174 = { OR = { religion = hussite religion = messalian } } }
 		}
 		effect = {
 			add_country_modifier = { name = A11_heretic_fervor duration = 7300 }
@@ -441,8 +458,8 @@ A11_slot_1_heresy = {
 		position = 5
 		required_missions = { A11_heresy_stronghold }
 		trigger = {
-			3171 = { AND = { religion = hussite owned_by = A11 } }
-			3170 = { AND = { religion = hussite owned_by = A11 } }
+			3171 = { AND = { OR = { religion = hussite religion = messalian } owned_by = ROOT } }
+			3170 = { AND = { OR = { religion = hussite religion = messalian } owned_by = ROOT } }
 		}
 		effect = {
 			add_country_modifier = { name = A11_tabor_army duration = -1 }
@@ -453,10 +470,11 @@ A11_slot_1_heresy = {
 		position = 6
 		required_missions = { A11_spartacus }
 		trigger = {
-			AND = { is_defender_of_faith = yes religion = hussite }
+			AND = { is_defender_of_faith = yes OR = { religion = hussite religion = messalian } }
 		}
 		effect = {
-			A11 = { every_owned_province = { limit = { AND = { religion = hussite continent = atlantis } } add_base_manpower = 1 } }
+			custom_tooltip = A11_defender_tooltip
+			ROOT = { every_owned_province = { limit = { AND = { OR = { religion = hussite religion = messalian } continent = atlantis } } add_base_manpower = 1 } }
 		}
 	}
 }

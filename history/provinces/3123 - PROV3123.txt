@@ -3,6 +3,7 @@
  add_core = A7T
  culture = odomantian
  religion = catholic
+ trade_goods = cloth
  is_city = yes
  hre = no
  fort_15th = yes

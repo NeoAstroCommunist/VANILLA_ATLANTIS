@@ -1,0 +1,162 @@
+# Do not change tags in here without changing every other reference to them.
+# If adding new dieties, make sure they are uniquely named.
+
+ouranos =
+{
+	heir_chance = -1
+	all_power_cost = -0.10
+	
+	allow = { religion = hellenic_titan }
+	sprite = 13
+	
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 2
+			personality = ai_balanced
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_colonialist
+		}
+	}
+}
+cronos =
+{
+	global_tax_modifier = 0.10
+	core_creation = -0.10
+	
+	allow = { religion = hellenic_titan }
+	sprite = 14
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			personality = ai_balanced
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_colonialist
+		}
+	}
+}
+prometheus =
+{
+	technology_cost = -0.1
+	idea_cost = -0.1
+	
+	allow = { religion = hellenic_titan }
+	sprite = 15
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			personality = ai_balanced
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_colonialist
+		}		
+	}
+}
+
+atlant =
+{
+	stability_cost_modifier = -0.25
+	state_maintenance_modifier = -0.25
+	
+	allow = { religion = hellenic_titan }
+	sprite = 16
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			personality = ai_militarist
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}
+	}
+}
+pallas =
+{
+	discipline = 0.05
+	land_morale = 0.10
+	
+	allow = { religion = hellenic_titan }
+	sprite = 17
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			NOT = { num_of_cities = 5 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { num_of_cities = 10 }
+		}
+		modifier = {
+			factor = 0.5
+			num_of_cities = 30
+		}
+		modifier = {
+			factor = 2
+			personality = ai_militarist
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_capitalist
+		}		
+	}
+}
+gaia =
+{
+	global_trade_goods_size_modifier = 0.1
+	gold_depletion_chance_modifier = -0.2
+	
+	allow = { religion = hellenic_titan }
+	sprite = 18
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			personality = ai_capitalist
+		}	
+		modifier = {
+			factor = 2
+			gold_income_percentage = 0.3
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}		
+	}
+}
+
+
+styx =
+{
+	monarch_lifespan = 0.2
+	ae_impact = -0.05
+	
+	allow = { religion = hellenic_titan }
+	sprite = 19
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			personality = ai_militarist
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}		
+	}
+}

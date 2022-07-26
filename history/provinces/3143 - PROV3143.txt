@@ -4,6 +4,7 @@
  add_core = A16
  culture = thynlander
  religion = catholic
+ trade_goods = fish
  is_city = yes
  hre = no
  base_tax = 2

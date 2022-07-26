@@ -3,6 +3,7 @@
  add_core = AT8
  culture = athamanean
  religion = chalcedonism
+ trade_goods = grain
  capital = "Dalibaya"
  is_city = yes
  hre = no

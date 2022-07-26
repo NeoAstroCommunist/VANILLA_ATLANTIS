@@ -440,7 +440,34 @@ christian = {
 			remove_country_modifier = the_declaration_of_indulgence
 			remove_country_modifier = de_heretico_comburendo
 			remove_country_modifier = the_conventicle_act
-	
+	        #Atlantis Changes
+			if = {
+				limit = {
+					has_country_flag = reformation_money
+					NOT = {
+						calc_true_if = {
+							all_province = {
+								religion = protestant
+								is_reformation_center = yes
+							}
+							amount = 3
+						}
+					}
+				}
+				hidden_effect = {
+					random_owned_province = {
+						limit = {
+							can_have_center_of_reformation_trigger = {
+								RELIGION = protestant
+							}
+						}
+						change_religion = protestant
+						add_reform_center = protestant
+					}
+				}
+				custom_tooltip = CENTER_OF_REFORMATION_POSSIBLE
+			}
+			#
 			if = {
 				limit = {
 					has_country_flag = reformation_money
@@ -823,6 +850,141 @@ christian = {
 		}
 		misguided_heretic = yes
 		heretic = { Fundamentalist Sectarian Populist Reactionary Millenarian Apocalyptic Ultraorthodox Humanistic Syncretic Messianic}
+		date = 2000.1.1
+	}
+	messalian = { 
+		color = { 169 29 17 }
+		icon = 30
+		allowed_conversion = { hussite coptic }
+		country = { 
+			tolerance_heretic = 2
+			global_heretic_missionary_strength = 0.02
+		}
+		country_as_secondary = {
+			tolerance_heretic = 1
+			defensiveness = 0.1
+		}
+		province = {
+			local_missionary_strength = -0.01
+		}
+		
+		on_convert = { 
+			change_religion = messalian
+		}
+		misguided_heretic = no
+		heretic = { Fundamentalist Sectarian Populist Reactionary Millenarian Apocalyptic Ultraorthodox Humanistic Syncretic Messianic}
+		has_patriarchs = yes		# Uses patriarch authority
+		orthodox_icons = {
+			# If no icon has ai_will_do above 1 - <current patriarch authority> , the AI will not enact it. (60% PA = 0.6 -> ai_will_do has to be at least 0.4)
+
+			icon_michael = {
+				discipline = 0.05
+				manpower_recovery_speed = 0.1
+				
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 0.05
+					modifier = {
+						factor = 0
+						is_at_war = no
+					}
+					modifier = {
+						factor = 3
+						is_in_important_war = yes
+					}
+				}
+			}
+
+			icon_eleusa = {
+				global_unrest = -3
+				harsh_treatment_cost = -0.25
+				
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 0.02
+					modifier = {
+						factor = 0
+						NOT = {
+							calc_true_if = {
+								all_owned_province = {
+									unrest = 1
+								}
+								amount = 2
+							}
+						}
+					}
+					modifier = {
+						factor = 3
+						calc_true_if = {
+							all_owned_province = {
+								unrest = 1
+							}
+							amount = 5
+						}
+					}
+				}
+			}
+
+			icon_pancreator = {
+				development_cost = -0.10
+				build_cost = -0.1
+				
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 0
+				}
+			}
+	
+			icon_nicholas = {
+				improve_relation_modifier = 0.25
+				ae_impact = -0.1
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 0.01
+				}
+			}
+
+			icon_climacus = {
+				global_institution_spread = 0.25
+				embracement_cost = -0.2
+				allow = {
+					always = yes
+				}
+				ai_will_do = {
+					factor = 0.02
+					modifier = {
+						factor = 0
+						NOT = {
+							calc_true_if = {
+								all_owned_province = {
+									current_institution = 1
+									NOT = { current_institution = 95 }
+								}
+								amount = 1
+							}
+						}
+					}
+					modifier = {
+						factor = 3
+						calc_true_if = {
+							all_owned_province = {
+								current_institution = 1
+								NOT = { current_institution = 95 }
+							}
+							amount = 5
+						}
+					}
+				}
+			}
+		}
 		date = 2000.1.1
 	}
 	
@@ -2355,6 +2517,59 @@ pagan = {
 		personal_deity = yes
 		
 		heretic = { OLD_NORSE }	
+	}
+	
+	hellenic_titan = {
+		icon = 31
+		color = { 85 105 135 }
+		country = {
+			discipline = 0.025
+			all_power_cost = -0.05
+		}
+		country_as_secondary = {
+			discipline = 0.025
+			land_morale = 0.05
+		}
+		province = {
+			local_missionary_strength = 0.01
+		}
+		
+		personal_deity = yes
+		
+		heretic = { HELLENIC_OLYMPIANS }	
+	}
+	hellenic_pagan = {
+		icon = 32
+		color = { 0.6 0.1 0.1 }
+		country = {
+			tolerance_own = 1
+			development_cost = -0.1
+		}
+		country_as_secondary = {
+			development_cost = -0.1
+		}
+		
+		personal_deity = yes
+		
+		heretic = { TITANISTS }	
+	}
+	sol_invictus = {
+		color = { 200 50 10 }
+		icon = 33
+		
+		country = {
+			tolerance_heretic = 2
+			administrative_efficiency = 0.05
+		}
+		
+		country_as_secondary = {
+			tolerance_heretic = 1
+			administrative_efficiency = 0.025
+		}
+	
+		uses_harmony = yes
+		
+		heretic = { HELLENISTS TRINITARIANS }
 	}
 	
 	tengri_pagan_reformed = {

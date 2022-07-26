@@ -1,0 +1,493 @@
+A10_starting_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = { tag = A10 AND = { was_tag = A10 tag = ATL } }
+	}
+
+	A10_moeniccia_war = {
+		icon = mission_steppe_warriors
+		position = 1
+		required_missions = { }
+		trigger = {
+			AND = { is_at_war = no OR = { has_country_flag = A10_moeniccia_white has_country_flag = A10_moeniccia_lost has_country_flag = A10_moeniccia_victory } }
+		}
+		effect = {
+			swap_non_generic_missions = yes
+		}
+	}
+}
+A10_branching_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		AND = { OR = { tag = A10 AND = { was_tag = A10 tag = ATL } } NOT = { OR = { has_country_flag = A10_moeniccia_white has_country_flag = A10_moeniccia_lost has_country_flag = A10_moeniccia_victory } } }
+	}
+
+	A10_branch_hint = {
+		icon = mission_unknown_mission
+		position = 1
+		required_missions = { A10_moeniccia_war }
+		trigger = {
+			custom_trigger_tooltip = {
+	        tooltip = A10_branch_hint_tooltip
+	        always = no
+            }
+		}
+		effect = {
+		}
+	}
+}
+A10_branching_slot_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = { tag = A10 AND = { was_tag = A10 tag = ATL } }
+	}
+
+	A10_branch_placeholder1 = {
+		icon = mission_unknown_mission
+		position = 2
+		required_missions = { }
+		trigger = {
+			custom_trigger_tooltip = {
+	        tooltip = A10_branch_placeholder_tooltip
+	        always = no
+            }
+		}
+		effect = {
+		}
+	}
+}
+A10_branching_slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = { tag = A10 AND = { was_tag = A10 tag = ATL } }
+	}
+
+	A10_branch_placeholder2 = {
+		icon = mission_unknown_mission
+		position = 2
+		required_missions = { }
+		trigger = {
+			custom_trigger_tooltip = {
+	        tooltip = A10_branch_placeholder_tooltip
+	        always = no
+            }
+		}
+		effect = {
+		}
+	}
+}
+A10_whitepeace_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		AND = { OR = { tag = A10 AND = { was_tag = A10 tag = ATL } } has_country_flag = A10_moeniccia_white }
+	}
+
+	A10_conquer_satraea = {
+		icon = mission_unite_home_region
+		position = 2
+		required_missions = { A10_moeniccia_war }
+		provinces_to_highlight = {
+			OR = { province_id = 3153 province_id = 3165 }
+		}
+		trigger = {
+			AND = { 3153 = { owned_by = ROOT } 3165 = { owned_by = ROOT } }
+		}
+		effect = {
+			add_country_modifier = { name = A10_satrae_conquered duration = 7300 }
+		}
+	}
+	A10_find_allies = {
+		icon = mission_alliances
+		position = 3
+		required_missions = { A10_conquer_satraea }
+		trigger = { 			
+		    custom_trigger_tooltip = {
+				tooltip = building_alliances.tooltip
+				num_of_allies = 2
+				calc_true_if = {
+					all_ally = {
+						has_opinion = {
+							who = ROOT
+							value = 150
+						}
+					}
+					amount = 2
+				}
+			}
+		}
+		effect = { every_ally = { add_trust = { who = ROOT value = 15 mutual = yes } } }
+	}
+	A10_move_on_white = {
+		icon = mission_high_income
+		position = 4
+		required_missions = { A10_find_allies }
+		trigger = { AND = { stability = 1 legitimacy = 80 prestige = 0 AND = { 3152 = { owned_by = ROOT } 3154 = { owned_by = ROOT } 3155 = { owned_by = ROOT } 3164 = { owned_by = ROOT } 3166 = { owned_by = ROOT } 3167 = { owned_by = ROOT } 3168 = { owned_by = ROOT } 3169 = { owned_by = ROOT } 3170 = { owned_by = ROOT } } } }
+		effect = { set_country_flag = A10_start_done swap_non_generic_missions = yes 3171 = { add_permanent_claim = ROOT } }
+	}
+}
+
+A10_victory_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		AND = { OR = { tag = A10 AND = { was_tag = A10 tag = ATL } } has_country_flag = A10_moeniccia_victory }
+	}
+
+	A10_enjoy_prosperity = {
+		icon = mission_early_game_buildings
+		position = 2
+		required_missions = { A10_moeniccia_war }
+		trigger = { 3152 = { development = 28 AND = { has_building = marketplace has_tax_building_trigger = yes } } }
+		effect = {
+		    every_owned_province = { limit = { OR = { area = atlantean_north_area area = atlantean_real_northwest_area } } add_devastation = -25 add_prosperity = 25  }
+		}
+	}
+	A10_colonisation_moeniccia = {
+		icon = mission_settlers_north_america
+		position = 3
+		required_missions = { A10_enjoy_prosperity }
+		trigger = { 
+		    num_of_owned_provinces_with = {
+            value = 5
+			OR = { province_id = 3120 province_id = 3121 province_id = 3123 province_id = 3134 area = atlantean_north_area area = atlantean_real_northwest_area }
+	        has_owner_culture = yes
+            }
+		}
+		effect = { every_owned_province = { limit = { AND = { has_owner_culture = yes OR = { province_id = 3120 province_id = 3121 province_id = 3123 province_id = 3134 area = atlantean_north_area area = atlantean_real_northwest_area } } } add_base_tax = 1 add_base_production = 1 add_base_manpower = 1 } }
+	}
+	A10_move_on_victory = {
+		icon = mission_italian_condottiere
+		position = 4
+		required_missions = { A10_colonisation_moeniccia }
+		trigger = { AND = { stability = 1 legitimacy = 95 prestige = 0 AND = { 3152 = { owned_by = ROOT } 3154 = { owned_by = ROOT } 3155 = { owned_by = ROOT } 3164 = { owned_by = ROOT } 3166 = { owned_by = ROOT } 3167 = { owned_by = ROOT } 3168 = { owned_by = ROOT } 3169 = { owned_by = ROOT } 3170 = { owned_by = ROOT } } } }
+		effect = { set_country_flag = A10_start_done swap_non_generic_missions = yes 3153 = { add_permanent_claim = ROOT } 3165 = { add_permanent_claim = ROOT } 3171 = { add_permanent_claim = ROOT } }
+	}
+}
+A10_loss_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		AND = { OR = { tag = A10 AND = { was_tag = A10 tag = ATL } } has_country_flag = A10_moeniccia_lost }
+	}
+
+	A10_stabilize_country = {
+		icon = mission_impaled_soldies
+		position = 2
+		required_missions = { A10_moeniccia_war }
+		trigger = { AND = { years_of_income = 1 stability = -1 legitimacy = 50 NOT = { num_of_rebel_armies = 1 } NOT = { num_of_rebel_controlled_provinces = 1 } } }
+		effect = { add_years_of_icome = -0.5 add_stability = 1 add_country_modifier = { name = A10_stabilization_package duration = 7300 } }
+	}
+	A10_reform_army = {
+		icon = mission_assemble_an_army
+		position = 3
+		required_missions = { A10_stabilize_country }
+		trigger = { AND = { army_size_percentage = 1 manpower_percentage = 0.50 mil_tech = 4 army_reformer = 2 } }
+		effect = { create_general = { tradition = 75 } add_country_modifier = { name = A10_army_discipline duration = 7300 } add_manpower = -1 }
+	}
+	A10_move_on_loss = {
+		icon = mission_cannons_firing
+		position = 4
+		required_missions = { A10_reform_army }
+		trigger = { AND = { stability = 1 legitimacy = 80 prestige = 0 AND = { 3152 = { owned_by = ROOT } 3154 = { owned_by = ROOT } 3155 = { owned_by = ROOT } 3164 = { owned_by = ROOT } 3166 = { owned_by = ROOT } 3167 = { owned_by = ROOT } 3168 = { owned_by = ROOT } 3169 = { owned_by = ROOT } 3170 = { owned_by = ROOT } } } }
+		effect = { set_country_flag = A10_start_done swap_non_generic_missions = yes 3153 = { add_permanent_claim = ROOT } 3165 = { add_permanent_claim = ROOT } 3171 = { add_permanent_claim = ROOT } }
+	}
+}
+A10_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		AND = { OR = { tag = A10 AND = { was_tag = A10 tag = ATL } } has_country_flag = A10_start_done }
+	}
+
+	A10_spartacia = {
+		icon = mission_cossack_cavalry
+		position = 5
+		required_missions = { }
+		provinces_to_highlight = {
+			OR = { province_id = 3171 province_id = 3170 }
+		}
+		trigger = { 
+		    3171 = { owned_by = ROOT }
+			3170 = { owned_by = ROOT }
+		}
+		effect = { add_country_modifier = { name = A10_hussites_crushed duration = 7300 } 3173 = { add_permanent_claim = ROOT } 3175 = { add_permanent_claim = ROOT } }
+	}
+	A10_caprera_novioritum = {
+		icon = mission_european_church
+		position = 6
+		required_missions = { A10_spartacia }
+		provinces_to_highlight = {
+			OR = { province_id = 3173 province_id = 3175 }
+		}
+		trigger = { 
+		    3173 = { owned_by = ROOT } 
+			3175 = { owned_by = ROOT } 
+		}
+		effect = { 3176 = { add_permanent_claim = ROOT } add_mil_power = 100 }
+	}
+	A10_thermopylae = {
+		icon = mission_conquer_50_development
+		position = 7
+		required_missions = { A10_caprera_novioritum }
+		provinces_to_highlight = {
+			province_id = 3176
+		}
+		trigger = { 3176 = { AND = { owned_by = ROOT is_core = ROOT } } }
+		effect = { 3184 = { add_permanent_claim = ROOT } 3183 = { add_permanent_claim = ROOT } 3182 = { add_permanent_claim = ROOT } 3181 = { add_permanent_claim = ROOT } 3180 = { add_permanent_claim = ROOT } 3179 = { add_permanent_claim = ROOT } 3178 = { add_permanent_claim = ROOT } 3177 = { add_permanent_claim = ROOT } }
+	}
+	A10_barracks_everywhere = {
+		icon = mission_assemble_an_army
+		position = 8
+		required_missions = { A10_salonae A10_thermopylae }
+		trigger = { 
+            barracks = 5
+		} 
+		effect = { add_country_modifier = { name = A10_barracks_built duration = -1 } }
+	}
+	A10_finish_theodosia = {
+		icon = mission_cannons_firing
+		position = 9
+		required_missions = { A10_barracks_everywhere }
+		provinces_to_highlight = {
+			OR = { 
+			province_id = 3184
+			province_id = 3183
+			province_id = 3182
+			province_id = 3181
+			province_id = 3180
+			province_id = 3179
+			province_id = 3178
+			province_id = 3177
+			}
+		}
+		trigger = { 
+		AND = { 3184 = { owned_by = ROOT } 3183 = { owned_by = ROOT } 3182 = { owned_by = ROOT } 3181 = { owned_by = ROOT } 3180 = { owned_by = ROOT } 3179 = { owned_by = ROOT } 3178 = { owned_by = ROOT } 3177 = { owned_by = ROOT } }
+		}
+		effect = { add_adm_power = 100 add_dip_power = 100 add_mil_power = 100 }
+	}
+	A10_atlantis = {
+		icon = mission_empire
+		position = 10
+		required_missions = { A10_finish_theodosia }
+		provinces_to_highlight = {
+			OR = { area = atlantean_northwest_area province_id = 3164 province_id = 3152 province_id = 3176 province_id = 3177 province_id = 3179 province_id = 3181 province_id = 3182 province_id = 3183 province_id = 3184 area = atlantean_lowlands_north_area }
+		}
+		trigger = {
+			AND = { atlantean_lowlands_north_area = { type = all owned_by = ROOT } atlantean_northwest_area = { type = all owned_by = ROOT } 3164 = { owned_by = ROOT } 3152 = { owned_by = ROOT } 3176 = { owned_by = ROOT } 3177 = { owned_by = ROOT } 3179 = { owned_by = ROOT } 3181 = { owned_by = ROOT } 3182 = { owned_by = ROOT } 3183 = { owned_by = ROOT } 3184 = { owned_by = ROOT } }
+		}
+		effect = {
+			change_tag = ATL
+			if = {
+				limit = { is_revolutionary = no is_monarchy = yes }
+				add_government_reform = aurichian_monarchy
+			}
+			if = {
+				limit = { is_revolutionary = no is_republic = yes }
+				add_government_reform = aurichian_republic
+			}
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			northeast_atlantis_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ATL
+			}
+			add_prestige = 25
+			set_country_flag = formed_atlantis_flag
+			complete_mission = A12_atlantis
+			complete_mission = A11_atlantis
+			complete_mission = A10_atlantis
+			swap_non_generic_missions = yes
+		}
+	}
+}
+
+A10_slot_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		AND = { OR = { tag = A10 AND = { was_tag = A10 tag = ATL } } has_country_flag = A10_start_done }
+	}
+
+	A10_wine_monopoly = {
+		icon = mission_market_place_with_asian_traders
+		position = 8
+		required_missions = { A10_wine_production }
+		trigger = { OR = { AND = { NOT = { has_estate = estate_church } years_of_income = 0.5 any_owned_province = { continent = atlantis trade_goods = wine } } AND = { any_owned_province = { continent = atlantis trade_goods = wine } has_estate = estate_church OR = { has_estate_privilege = estate_church_monopoly_of_wine estate_loyalty = { estate = estate_church loyalty = 90 } NOT = { estate_influence = { estate = estate_church influence = 10 } } } } } }
+		effect = { 
+            if = { limit = { has_estate = estate_church } change_price = { trade_goods = wine key = magnusian_wine value = 0.15 duration = 3650 } }
+			else = { change_price = { trade_goods = wine key = magnusian_wine value = 0.15 duration = 3650 } add_years_of_income = -0.5 }
+		}
+	}
+}
+
+A10_slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		AND = { OR = { tag = A10 AND = { was_tag = A10 tag = ATL } } has_country_flag = A10_start_done }
+	}
+
+	A10_grain_production = {
+		icon = mission_have_manufactories
+		position = 5
+		required_missions = {  }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			AND = { continent = atlantis trade_goods = grain NOT = { development = 24 } }
+		}
+		trigger = { any_owned_province = { continent = atlantis trade_goods = grain development = 24 } }
+		effect = { custom_tooltip = A10_grain_buff_tooltip hidden_effect = { random_owned_province = { limit = { continent = atlantis trade_goods = grain development = 24 } add_province_modifier = { name = A10_grain_buff duration = -1 } } } }
+	}
+	A10_crownlands = {
+		icon = mission_early_modern_university
+		position = 6
+		required_missions = { A10_grain_production }
+		trigger = { crown_land_share = 51 }
+		effect = { add_country_modifier = { name = A10_tax_dominance duration = 7300 } }
+	}
+	A10_wine_production = {
+		icon = mission_hanseatic_city
+		position = 7
+		required_missions = { A10_crownlands A10_caprera_novioritum }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			AND = { continent = atlantis trade_goods = wine NOT = { development = 20 } }
+		}
+		trigger = { any_owned_province = { continent = atlantis trade_goods = wine development = 20 } }
+		effect = { custom_tooltip = A10_wine_buff_tooltip hidden_effect = { random_owned_province = { limit = { continent = atlantis trade_goods = wine development = 20 } add_province_modifier = { name = A10_wine_buff duration = -1 } } } }
+	}
+	A10_trade_thermopylae = {
+		icon = mission_dominate_home_trade_node
+		position = 8
+		required_missions = { A10_wine_production A10_thermopylae }
+		trigger = { 3176 = { AND = { has_building = marketplace development = 20 } } }
+		effect = { 3176 = { add_province_modifier = { name = A10_thermopylae_trade duration = -1 } } }
+	}
+	A10_religious_trading = {
+		icon = mission_religious
+		position = 9
+		required_missions = { A10_trade_thermopylae A10_wine_monopoly }
+		trigger = { OR = { full_idea_group = religious_ideas full_idea_group = trade_ideas } }
+		effect = { custom_tooltip = A10_propagate_religion_tooltip hidden_effect = { set_country_flag = can_use_propagate_religion } }
+	}
+}
+
+A10_slot_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		AND = { OR = { tag = A10 AND = { was_tag = A10 tag = ATL } } has_country_flag = A10_start_done }
+	}
+
+	A10_generic_fleet = {
+		icon = mission_galleys_in_port
+		position = 6
+		required_missions = {  }
+		trigger = { AND = { num_of_light_ship = 12 num_of_heavy_ships = 8 } }
+		effect = { add_yearly_sailors = 5 }
+	}
+	A10_salonae = {
+		icon = mission_sea_battles
+		position = 7
+		required_missions = { A10_generic_fleet A10_caprera_novioritum }
+		trigger = {
+			3174 = { owned_by = ROOT }
+		}
+		effect = {
+			country_event = { id = atlantis_A10.6 }
+		}
+	}
+}
+
+A10_slot_4_salonae = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		AND = { OR = { tag = A10 AND = { was_tag = A10 tag = ATL } } has_country_flag = A10_salonae_capital }
+	}
+
+	A10_salonae_deving_branch = {
+		icon = mission_early_game_buildings
+		position = 8
+		required_missions = { A10_salonae }
+		trigger = {
+			3174 = { owned_by = ROOT development = 35 has_building = workshop }
+		}
+		effect = {
+			IF = { limit = { 3174 = { has_province_modifier = A11_paper_quality } } add_adm_power = 100 add_dip_power = 100 add_mil_power = 100 }
+			ELSE = { 3174 = { add_province_modifier = { name = A11_paper_quality duration = -1 } } }
+		}
+	}
+}
+
+A10_slot_4_diocletianopolis = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		AND = { OR = { tag = A10 AND = { was_tag = A10 tag = ATL } } has_country_flag = A10_diocletianopolis_capital }
+	}
+	A10_diocletianopolis_great_project = {
+		icon = mission_early_game_buildings
+		position = 5
+		required_missions = { A10_salonae }
+		trigger = {
+			3152 = { AND = { owned_by = ROOT has_building = shipyard has_building = workshop has_building = barracks development = 30 } }
+		}
+		effect = {
+		3152 = {
+			add_great_project = {
+            type = diocletianopolis_project
+            instant = no 
+            }
+		}
+		}
+	}
+}
+
+A10_slot_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		AND = { OR = { tag = A10 AND = { was_tag = A10 tag = ATL } } has_country_flag = A10_start_done }
+	}
+
+	A10_oceania = {
+		icon = mission_invade_island
+		position = 7
+		required_missions = { A10_generic_fleet }
+		trigger = {
+			AND = {
+				atlantean_northern_archipelago_east_area = { type = all owned_by = ROOT } atlantean_northern_archipelago_west_area = { type = all owned_by = ROOT }
+			}
+		}
+		effect = {
+			change_price = { trade_goods = fish key = oceanian_fish value = 0.10 duration = 3650 }
+		}
+	}
+}
+

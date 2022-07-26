@@ -1,0 +1,165 @@
+namespace = atlantis_A12
+
+country_event = {
+	id = atlantis_A12.1
+	title = atlantis_A12.1.t
+	desc = atlantis_A12.1.d
+	picture = SIEGE_eventPicture
+	
+	major = yes
+	trigger = { AND = { tag = A12 NOT = { is_year = 1445 } A7T = { offensive_war_with = A10 } } }
+	fire_only_once = yes
+	
+	mean_time_to_happen = { days = 3 }
+	option = {
+		name = atlantis_A12.1.a #Help Moeniccia
+		ROOT = { join_all_offensive_wars_of = A7T }
+		set_country_flag = A12_moeniccia_helped
+		A7T = { add_opinion = { who = A12 modifier = opinion_moeniccia_friend } }
+		add_opinion = { who = A7T modifier = opinion_moeniccia_friend }
+		A7T = { add_historical_friend = A12 }
+		add_historical_friend = A7T
+		A10 = { country_event = { id = atlantis_A12.3 } }
+		ai_chance = {
+			factor = 35
+		}
+	}
+	option = {
+		name = atlantis_A12.1.b #Ignore Moeniccia
+		set_country_flag = A12_moeniccia_ignored
+		ai_chance = {
+			factor = 65
+		}
+	}
+}
+
+# Salonae capital
+country_event = {
+	id = atlantis_A12.2
+	title = "atlantis_A12.2.t"
+	desc = "atlantis_A12.2.d"
+	picture = CULTURE_eventPicture
+	
+	is_triggered_only = yes
+
+	major = yes
+	
+	option = {
+		name = "atlantis_A12.2.a" #Move to Salonae
+		ai_chance = {
+			factor = 50
+		}
+		3174 = { add_core = ROOT }
+		set_capital = 3174
+		set_country_flag = A12_salonae_capital
+		swap_non_generic_missions = yes
+	}
+	option = {
+		name = "atlantis_A12.2.b" #Stay in Duranium
+		ai_chance = {
+			factor = 50
+		}
+		set_country_flag = A12_duranium_capital
+		swap_non_generic_missions = yes
+	}
+}
+
+# What is this?
+country_event = {
+	id = atlantis_A12.3
+	title = "atlantis_A12.3.t"
+	desc = "atlantis_A12.3.d"
+	picture = CONQUEST_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = "atlantis_A12.3.a" #
+		add_war_exhaustion = 3
+		A12 = { add_opinion = { who = A10 modifier = opinion_moeniccia_enemy } }
+		add_opinion = { who = A12 modifier = opinion_moeniccia_enemy }
+		hidden_effect = {
+			FROM = {
+				add_truce_with = ROOT
+			}
+		}
+		add_truce_with = FROM
+	}
+}
+
+country_event = {
+	id = atlantis_A12.4
+	title = "atlantis_A12.4.t"
+	desc = "atlantis_A12.4.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	trigger = { AND = { OR = { tag = A12 tag = ATL } has_country_flag = A12_horsing_time NOT = { ruler_age = 65 } } }
+	mean_time_to_happen = { years = 5 }
+	fire_only_once = yes
+
+	option = {
+		name = "atlantis_A12.4.a" #
+		define_advisor = { culture = ROOT name = "Glitterhoof" type = glitterhoof skill = 3 cost_multiplier = 0.0 }
+	}
+}
+
+country_event = {
+	id = atlantis_A12.5
+	title = atlantis_A12.5.t
+	desc = atlantis_A12.5.d
+
+	picture = LIBERUM_VETO_eventPicture
+	
+	is_triggered_only = YES
+	major = yes
+	
+	option = {
+		name = atlantis_A12.5.a 
+		trigger = {
+			A7T = {
+				ai = yes
+				was_player = no
+			}
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				NOT = { total_development = FROM }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { army_size = FROM }
+			}
+			modifier = {
+				factor = 1.5
+				historical_friend_with = FROM
+			}
+		}
+		A12 = { create_union = A7T }
+	}
+	
+	option = {
+		name = atlantis_A12.5.b 
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 1.5
+				total_development = FROM 
+			}
+			modifier = {
+				factor = 1.5
+				army_size = FROM 
+			}
+		}
+		A12 = { add_casus_belli = { type = cb_restore_personal_union months = 300 target = A7T } }
+		A12 = {
+			add_opinion = {
+				who = ROOT
+				modifier = A12_moeniccian_pu_denied
+			}
+		}
+	}
+}

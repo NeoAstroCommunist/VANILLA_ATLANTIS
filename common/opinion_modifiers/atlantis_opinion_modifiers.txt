@@ -1,0 +1,43 @@
+#########################################################################
+# OPINION MODIFIERS
+##########################################################################
+
+##########################################################################
+# HARD - DO NOT REMOVE OR RENAME ANY OF THESE
+##########################################################################
+
+##############
+# FIXED STATE
+##############
+
+
+opinion_heretic_satanists = {
+	opinion = -100
+	years = 30
+	yearly_decay = 1
+}
+
+opinion_burnt_carthage = {
+	opinion = -100
+	years = 30
+	yearly_decay = 1
+}
+
+
+opinion_heathen_satanists = {
+	opinion = -100
+	years = 30
+	yearly_decay = 1
+}
+
+opinion_moeniccia_friend = {
+	opinion = 75
+	years = 30
+	yearly_decay = 1
+}
+
+opinion_moeniccia_enemy = {
+	opinion = -75
+	years = 30
+	yearly_decay = 1
+}

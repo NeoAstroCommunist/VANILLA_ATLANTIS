@@ -3,6 +3,7 @@
  add_core = A8T
  culture = romanphocisian
  religion = catholic
+ trade_goods = wool
  is_city = yes
  hre = no
  base_tax = 1

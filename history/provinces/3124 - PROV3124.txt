@@ -3,6 +3,7 @@
  add_core = A17
  culture = saioan
  religion = animism
+ trade_goods = fish
  is_city = yes
  hre = no
  base_tax = 2

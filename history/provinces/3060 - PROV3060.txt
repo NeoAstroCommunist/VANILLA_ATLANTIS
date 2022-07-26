@@ -4,6 +4,7 @@
  add_core = AT2
  culture = icarian
  religion = sunni
+ trade_goods = grain
  is_city = yes
  hre = no
  fort_15th = yes

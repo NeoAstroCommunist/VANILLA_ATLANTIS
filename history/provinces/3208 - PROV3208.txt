@@ -3,6 +3,7 @@
  add_core = AT7
  culture = numidian
  religion = chalcedonism
+ trade_goods = fur
  is_city = yes
  hre = no
  base_tax = 4

@@ -3,6 +3,7 @@
  add_core = AT6
  culture = numidian
  religion = chalcedonism
+ trade_goods = fur
  is_city = yes
  hre = no
  fort_15th = yes

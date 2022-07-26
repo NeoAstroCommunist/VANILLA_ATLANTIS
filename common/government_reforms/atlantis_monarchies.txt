@@ -1,0 +1,34 @@
+aurichian_monarchy = {
+	icon = crown
+	allow_normal_conversion = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 50
+	legacy_equivalent = despotic_monarchy
+	potential = {
+		tag = ATL
+		AND = {
+			tag = ROM
+			have_had_reform = aurichian_monarchy
+		}
+	}
+	trigger = {
+		tag = ATL
+		AND = {
+			tag = ROM
+			have_had_reform = aurichian_monarchy
+		}
+	}
+	modifiers = {
+		max_absolutism = 10
+		global_autonomy = -0.075
+		state_maintenance_modifier = -0.10
+		governing_capacity_modifier = 0.1
+	}
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		militarised_society = yes
+	}
+	ai = {
+		factor = 100
+	}
+}

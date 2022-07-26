@@ -3,6 +3,7 @@
  add_core = AT4
  culture = barqaqarti
  religion = shiite
+ trade_goods = grain
  capital = "Akorion"
  is_city = yes
  hre = no

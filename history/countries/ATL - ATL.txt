@@ -1,0 +1,10 @@
+government = republic
+add_government_reform = merchants_reform
+government_rank = 1
+mercantilism = 25
+primary_culture = romansithon
+religion = catholic
+technology_group = western
+capital = 3174	# Salonae
+
+

@@ -4,6 +4,7 @@
  add_core = A11
  culture = romansithon
  religion = catholic
+ trade_goods = wine
  is_city = yes
  hre = no
  fort_15th = yes

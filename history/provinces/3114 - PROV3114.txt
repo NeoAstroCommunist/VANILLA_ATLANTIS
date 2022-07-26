@@ -4,6 +4,7 @@
  culture = dardanian
  religion = catholic
  trade_goods = copper
+ latent_trade_goods =  { coal }
  is_city = yes
  hre = no
  base_tax = 1

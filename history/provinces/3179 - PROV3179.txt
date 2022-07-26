@@ -5,6 +5,8 @@
  religion = catholic
  is_city = yes
  hre = no
+ trade_goods = iron
+ latent_trade_goods =  { coal }
  base_tax = 1
  base_production = 1
  base_manpower = 1

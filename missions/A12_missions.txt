@@ -1,0 +1,430 @@
+A12_slot_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = { tag = A12 AND = { was_tag = A12 tag = ATL } }
+	}
+
+	A12_learn_lessons = {
+		icon = mission_build_up_to_force_limit
+		position = 2
+		required_missions = { A12_moeniccia_war }
+		trigger = {
+			AND = { tech = 4 OR = { A7T = { is_at_war = no } A7T = { exists = no } } }
+		}
+		effect = {
+			IF = { limit = { had_recent_war = 15 } add_army_tradition = 30 add_army_professionalism = 0.02 add_country_modifier = { name = A12_army_experience duration = 7300 } 3176 = { add_permanent_claim = ROOT }
+			} ELSE = { add_army_tradition = 5 3176 = { add_permanent_claim = ROOT } }
+		}
+	}
+	A12_thermopylae = {
+		icon = mission_steppe_warriors
+		position = 3
+		required_missions = { A12_learn_lessons A12_duranium_dev }
+		provinces_to_highlight = {
+			province_id = 3176
+		}
+		trigger = {
+			3176 = { owned_by = ROOT }
+		}
+		effect = {
+			3176 = { add_core = ROOT }
+		}
+	}
+	A12_castle_thermopylae = {
+		icon = mission_conquer_50_development
+		position = 4
+		required_missions = { A12_thermopylae }
+		trigger = {
+			3176 = { has_building = fort_15th }
+		}
+		effect = {
+			atlantean_northwest_area = { add_permanent_claim = ROOT } 3172 = { add_permanent_claim = ROOT }
+			3176 = { add_province_modifier = { name = A12_thermopylae_buff duration = 14600 } }
+		}
+	}
+	A12_southern_magnusia = {
+		icon = mission_have_two_subjects
+		position = 5
+		required_missions = { A12_castle_thermopylae A12_salonae }
+		provinces_to_highlight = {
+			OR = { area = atlantean_northwest_area province_id = 3172  }
+		}
+		trigger = {
+			atlantean_northwest_area = { type = all owned_by = ROOT } 3172 = { owned_by = ROOT }
+		}
+		effect = {
+			if = { limit = { has_estate = estate_nobles } add_estate_loyalty = { estate = estate_nobles loyalty = 15 } add_country_modifier = { name = A12_ecstatic_nobility duration = 7300 } } ELSE = { add_country_modifier = { name = A12_ecstatic_nobility duration = 7300 } }
+		}
+	}
+	A12_copper_mine = {
+		icon = mission_have_manufactories
+		position = 6
+		required_missions = { A12_southern_magnusia }
+		provinces_to_highlight = {
+			OR = { province_id = 3166 province_id = 3179 }
+		}
+		trigger = {
+			AND = { 3166 = { base_production = 10 has_building = workshop } 3179 = { base_production = 10 has_building = workshop } }
+		}
+		effect = {
+			3166 = { add_province_modifier = { name = A12_iron_buff duration = -1 } } 3179 = { add_province_modifier = { name = A12_iron_buff duration = -1 } }
+		}
+	}
+	A12_artillery_buff_mission = {
+		icon = mission_cannons_firing
+		position = 7
+		required_missions = { A12_copper_mine }
+		trigger = {
+			AND = { 3166 = { has_building = weapons } 3179 = { has_building = weapons } }
+		}
+		effect = {
+			add_country_modifier = { name = A12_artillery_buff duration = -1 }
+		}
+	}
+	A12_islands = {
+		icon = mission_invade_island
+		position = 8
+		required_missions = { A12_north_magnusia }
+		trigger = {
+			AND = {
+				atlantean_northern_archipelago_east_area = { type = all owned_by = ROOT } atlantean_northern_archipelago_west_area = { type = all owned_by = ROOT }
+			}
+		}
+		effect = {
+			change_price = { trade_goods = fish key = oceanian_fish value = 0.10 duration = 3650 }
+		}
+	}
+}
+
+A12_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = { tag = A12 AND = { was_tag = A12 tag = ATL } }
+	}
+
+	A12_moeniccia_war = {
+		icon = mission_alliances
+		position = 1
+		required_missions = {  }
+		trigger = {
+			AND = { is_at_war = NO OR = { has_country_flag = A12_moeniccia_helped has_country_flag = A12_moeniccia_ignored } }
+		}
+		effect = {
+			IF = { limt = { has_country_flag = A12_moeniccia_helped } swap_non_generic_missions = yes } ELSE = { add_prestige = 5 }
+		}
+	}
+	A12_duranium_dev = {
+		icon = mission_hanseatic_city
+		position = 2
+		required_missions = {  }
+		trigger = {
+			3181 = { AND = { has_building = marketplace has_building = temple } }
+		}
+		effect = {
+			add_country_modifier = { name = A12_tax_trade duration 7300 }
+		}
+	}
+	A12_culture_punics = {
+		icon = mission_settlers_north_america
+		position = 3
+		required_missions = { A12_duranium_dev }
+		provinces_to_highlight = {
+			OR = { province_id = 3183 province_id = 3182 }
+		}
+		trigger = {
+			3183 = { culture = ROOT religion = ROOT } 3182 = { culture = ROOT religion = ROOT }
+		}
+		effect = {
+			3183 = { add_base_tax = 1 add_base_production = 1 add_base_manpower = 1 } 3182 = { add_base_tax = 1 add_base_production = 1 add_base_manpower = 1 }
+		}
+	}
+	A12_trade_control = {
+		icon = mission_dominate_home_trade_node
+		position = 4
+		required_missions = { A12_thermopylae }
+		trigger = {
+			3228 = { trade_share = { country = ROOT share = 51 } }
+		}
+		effect = {
+			add_mercantilism = 5
+		}
+	}
+	A12_dominant_steering = {
+		icon = mission_war_chest
+		position = 5
+		required_missions = { A12_trade_control }
+		trigger = {
+			AND = { 3237 = { trade_share = { country = ROOT share = 20 } } 3233 = { trade_share = { country = ROOT share = 20 } } 1564 = { trade_share = { country = ROOT share = 20 } } }
+		}
+		effect = {
+		    IF = { limit = { capital_scope = { province_has_center_of_trade_of_level = 1 } } add_center_of_trade_level = 1 }
+			ELSE_IF = { limit = { capital_scope = { province_has_center_of_trade_of_level = 3 } } add_adm_power = 150 add_dip_power = 150 add_mil_power = 150 }
+			ELSE = { center_of_trade = 1 }
+		}
+	}
+	A12_integrate_south_magnusia = {
+		icon = mission_noble_council
+		position = 6
+		required_missions = { A12_southern_magnusia }
+		trigger = {
+			atlantean_northwest_area = { type = all owned_by = ROOT NOT = { devastation = 1 } is_core = ROOT }
+		}
+		effect = {
+			atlantean_real_northeast_area = { add_permanent_claim = ROOT }
+			add_mana_scaled_on_monarch_skill = yes
+			atlantean_northwest_area = { if = { limit = { owner = { has_dlc = "Mandate of Heaven" } } add_prosperity = 25 } else = { add_prestige = 25 } }
+		}
+	}
+	A12_north_magnusia = {
+		icon = mission_cossack_cavalry
+		position = 7
+		required_missions = { A12_integrate_south_magnusia }
+		provinces_to_highlight = {
+			area = atlantean_real_northeast_area
+		}
+		trigger = {
+			atlantean_real_northeast_area = { type = all owned_by = ROOT }
+		}
+		effect = {
+			atlantean_northern_archipelago_east_area = { add_permanent_claim = ROOT } atlantean_northern_archipelago_west_area = { add_permanent_claim = ROOT }
+		}
+	}
+	A12_integrate_north_magnusia = {
+		icon = mission_early_modern_university
+		position = 8
+		required_missions = { A12_north_magnusia }
+		trigger = {
+			atlantean_real_northeast_area = { type = all owned_by = ROOT NOT = { devastation = 1 } is_core = ROOT }
+		}
+		effect = {
+			add_mana_scaled_on_monarch_skill = yes
+			atlantean_real_northeast_area = { if = { limit = { owner = { has_dlc = "Mandate of Heaven" } } add_prosperity = 25 } else = { add_prestige = 25 } }
+		}
+	}
+	A12_satraea = {
+		icon = mission_conquer_5_states
+		position = 9
+		required_missions = { A12_integrate_north_magnusia }
+		provinces_to_highlight = {
+			OR = { province_id = 3153 province_id = 3165 }
+		}
+		trigger = {
+			AND = { 3153 = { owned_by = ROOT } 3165 = { owned_by = ROOT } }
+		}
+		effect = {
+			add_country_modifier = { name = A12_satrae_conquered duration = 7300 }
+		}
+	}
+	A12_atlantis = {
+		icon = mission_empire
+		position = 10
+		required_missions = { A12_satraea }
+		provinces_to_highlight = {
+			OR = { area = atlantean_northwest_area province_id = 3164 province_id = 3152 province_id = 3176 province_id = 3177 province_id = 3179 province_id = 3181 province_id = 3182 province_id = 3183 province_id = 3184 area = atlantean_lowlands_north_area }
+		}
+		trigger = {
+			AND = { atlantean_lowlands_north_area = { type = all owned_by = ROOT } atlantean_northwest_area = { type = all owned_by = ROOT } 3164 = { owned_by = ROOT } 3152 = { owned_by = ROOT } 3176 = { owned_by = ROOT } 3177 = { owned_by = ROOT } 3179 = { owned_by = ROOT } 3181 = { owned_by = ROOT } 3182 = { owned_by = ROOT } 3183 = { owned_by = ROOT } 3184 = { owned_by = ROOT } }
+		}
+		effect = {
+			change_tag = ATL
+			if = {
+				limit = { is_revolutionary = no is_monarchy = yes }
+				add_government_reform = aurichian_monarchy
+			}
+			if = {
+				limit = { is_revolutionary = no is_republic = yes }
+				add_government_reform = aurichian_republic
+			}
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			northeast_atlantis_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ATL
+			}
+			add_prestige = 25
+			set_country_flag = formed_atlantis_flag
+			complete_mission = A12_atlantis
+			complete_mission = A11_atlantis
+			complete_mission = A10_atlantis
+			swap_non_generic_missions = yes
+		}
+	}
+}
+
+A12_slot_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = { tag = A12 AND = { was_tag = A12 tag = ATL } }
+	}
+
+	A12_generic_navy = {
+		icon = mission_galleys_in_port
+		position = 3
+		required_missions = {  }
+		trigger = {
+			AND = { num_of_light_ship = 10 heavy_ships 3228 = { heavy_ships_in_province = 1 } }
+		}
+		effect = {
+			3174 = { add_permanent_claim = A12 }
+			create_admiral = { tradition = 50 }
+		}
+	}
+	A12_salonae = {
+		icon = mission_sea_battles
+		position = 4
+		required_missions = { A12_generic_navy }
+		provinces_to_highlight = {
+			province_id = 3174
+		}
+		trigger = {
+			3174 = { owned_by = ROOT }
+		}
+		effect = {
+			country_event = { id = atlantis_A12.2 }
+		}
+	}
+}
+
+A12_slot_5_salonae = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		AND = { has_country_flag = A12_salonae_capital OR = { tag = A12 AND = { was_tag = A12 tag = ATL } } }
+	}
+
+	A12_salonae_deving_branch = {
+		icon = mission_early_game_buildings
+		position = 5
+		required_missions = { A12_salonae }
+		trigger = {
+			3174 = { owned_by = ROOT development = 35 has_building = workshop }
+		}
+		effect = {
+			IF = { limit = { 3174 = { has_province_modifier = A11_paper_quality } } add_adm_power = 100 add_dip_power = 100 add_mil_power = 100 }
+			ELSE = { 3174 = { add_province_modifier = { name = A11_paper_quality duration = -1 } } }
+		}
+	}
+}
+
+A12_slot_5_duranium = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		AND = { has_country_flag = A12_duranium_capital OR = { tag = A12 AND = { was_tag = A12 tag = ATL } } }
+	}
+
+	A12_duranium_ivory = {
+		icon = mission_early_game_buildings
+		position = 5
+		required_missions = { A12_salonae }
+		trigger = {
+			3181 = { AND = { owned_by = ROOT has_building = shipyard development = 30 } }
+		}
+		effect = {
+			3181 = { change_trade_goods = ivory }
+		}
+	}
+}
+
+A12_slot_2_moeniccia = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		AND = { has_country_flag = A12_moeniccia_helped OR = { tag = A12 AND = { was_tag = A12 tag = ATL } } }
+	}
+
+	A12_moeniccia_restored = {
+		icon = mission_unite_home_region
+		position = 2
+		required_missions = { A12_moeniccia_war }
+		trigger = {
+			OR = { AND = { atlantean_north_area = { type = all owned_by = A7T } atlantean_real_northwest_area = { type = all owned_by = A7T } 3134 = { owned_by = A7T } 3123 = { owned_by = A7T } 3121 = { owned_by = A7T } 3120 = { owned_by = A7T } 3119 = { owned_by = A7T } alliance_with = A7T } AND = { atlantean_north_area = { type = all owned_by = ROOT } atlantean_real_northwest_area = { type = all owned_by = ROOT } 3134 = { owned_by = ROOT } 3123 = { owned_by = ROOT } 3121 = { owned_by = ROOT } 3120 = { owned_by = ROOT } 3119 = { owned_by = ROOT } } }
+		}
+		effect = {
+			IF = { limit = { alliance_with = A7T } A7T = { add_trust = { who = ROOT value = 25 mutual = yes } } } ELSE = {  }
+		}
+	}
+	A12_moeniccia_pu = {
+		icon = mission_monarch_in_throne_room
+		position = 3
+		required_missions = { A12_moeniccia_restored }
+		trigger = {
+			AND = { A7T = { marriage_with = ROOT } A7T = { has_opinion = { who = ROOT value = 160 } } A7T = { trust = { who = ROOT value = 100 } } }
+		}
+		effect = {
+			A7T = { country_event = { id = atlantis_A12.5 days = 5 } }
+		}
+	}
+}
+
+A12_slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = { tag = A12 AND = { was_tag = A12 tag = ATL } }
+	}
+
+	A12_placeholder = {
+		icon = mission_build_up_to_force_limit
+		position = 4
+		required_missions = {  }
+		trigger = {
+			AND = { cavalry_fraction = 0.3 is_monarch_leader = yes ruler_age = 65 has_consort = no }
+		}
+		effect = {
+			set_country_flag = A12_horsing_time
+		}
+	}
+	A12_reinforce_christianity = {
+		icon = mission_hands_praying
+		position = 7
+		required_missions = {  }
+		trigger = {
+			AND = { religious_ideas = 5 temple = 5 }
+		}
+		effect = {
+			define_advisor = { culture = ROOT type = inquisitor skill = 3 cost_multiplier = 0.25 }
+		}
+	}
+	A12_contact_pope = {
+		icon = mission_religious
+		position = 8
+		required_missions = { A12_reinforce_christianity }
+		trigger = {
+			AND = { PAP = { has_opinion = { who = ROOT value = 120 } religion = catholic } }
+		}
+		effect = {
+			add_papal_influence = 25
+			capital_scope = { IF = { limit = { religion = catholic has_cardinal = no } add_cardinal = yes } }
+		}
+	}
+	A12_become_emperor_aurichia = {
+		icon = mission_pf_map_table
+		position = 9
+		required_missions = { A12_integrate_north_magnusia A12_contact_pope }
+		trigger = {
+			ROOT = { years_of_income = 10 }
+		}
+		effect = {
+			add_years_of_income = -10
+			add_country_modifier = { name = A12_emperor_of_aurichia duration = -1 }
+		}
+	}
+}
+

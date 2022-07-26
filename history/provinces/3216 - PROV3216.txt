@@ -5,6 +5,7 @@
  add_claim = A2T
  culture = finiqian
  religion = sunni
+ trade_goods = cloth
  is_city = yes
  hre = no
  fort_15th = yes

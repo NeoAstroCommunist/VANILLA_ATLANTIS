@@ -3,6 +3,7 @@
  add_core = AT1
  culture = cartagean
  religion = chalcedonism
+ trade_goods = salt
  capital = "Hasron"
  is_city = yes
  hre = no

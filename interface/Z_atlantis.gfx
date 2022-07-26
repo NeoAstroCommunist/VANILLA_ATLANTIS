@@ -1,0 +1,25 @@
+spriteTypes = {
+    spriteType = {
+    name = "GFX_advisor_glitterhoof"
+    texturefile = "gfx//interface//advisors//glitterhoof.dds"
+    noOfFrames = 1
+    norefcount = yes
+    effectFile = "gfx/FX/buttonstate.lua"
+    loadType = "INGAME"
+    }
+	spriteType = {
+		name = "GFX_temple_hellenic_titan"
+		texturefile = "gfx//interface//buildings//latin_temple.tga"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_cathedral_hellenic_titan"
+		texturefile = "gfx//interface//buildings//latin_cathedral.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "DWARF_eventPicture"
+		texturefile = "gfx/event_pictures/event_pictures_ATLANTIS/DWARF_eventPicture.dds"
+	}
+}

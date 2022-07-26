@@ -135,11 +135,11 @@ latinatlantic_ideas = {
 		movement_speed_onto_off_boat_modifier = 0.20
 	}
 	latinatlantic_ideas_3 = { 
-		center_of_trade_upgrade_cost = -0.05
-		trade_range_modifier = 0.25
+		trade_efficiency = 0.15
 	}
 	latinatlantic_ideas_4 = { 
-		legitimacy = 0.1
+		legitimacy = 1
+		republican_tradition = 0.1
 		land_morale = 0.10
 	}
 	latinatlantic_ideas_5 = { 
@@ -242,6 +242,7 @@ nativeatlantic_ideas = {
 	    OR = {
 		culture_group = nativeatlantean
 		tag = A14
+		tag = A6T
 		}
 		NOT = { 
 			is_colonial_nation = yes

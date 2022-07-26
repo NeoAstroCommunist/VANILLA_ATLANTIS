@@ -84,13 +84,11 @@ country_decisions = {
 		}
 		ai_importance = 400
 	}
-	atlantis_romans_nation = { 
+	atlantis_true_nation = { 
 		major = yes
 		potential = { 
-		    AND = {
-			culture_group = romanatlantean
+		    tag = A6T
 			NOT = { has_country_flag = atlantis_united }
-			}
 		}
 		provinces_to_highlight = {  }
 		allow = { 
@@ -103,6 +101,25 @@ country_decisions = {
 		effect = { 
 		    set_country_flag = atlantis_united
 			add_prestige = 15
+			override_country_name = "ATLANTISTRUE"
+		}
+		ai_will_do = { 
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	atlantis_romans_nation = { 
+		major = yes
+		potential = { 
+		    tag = ATL
+		}
+		provinces_to_highlight = {  }
+		allow = { 
+			is_at_war = no
+			NOT = { has_country_flag = atlantis_united }
+		}
+		effect = { 
+		    set_country_flag = atlantis_united
 			override_country_name = "ATLANTISROME"
 		}
 		ai_will_do = { 

@@ -1,0 +1,223 @@
+namespace = atlantis_A10
+
+country_event = {
+	id = atlantis_A10.1
+	title = atlantis_A10.1.t
+	desc = atlantis_A10.1.d
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	trigger = { 
+	    tag = A10
+	    NOT = { has_country_flag = A10_moeniccia_ended }
+	    is_at_war = NO
+		A7T = { exists = NO }
+		AND = { 3120 = { owned_by = ROOT } 3123 = { owned_by = ROOT } 3121 = { owned_by = ROOT } atlantean_north_area = { type = all owned_by = ROOT } atlantean_real_northwest_area = { type = all owned_by = ROOT } }
+	}
+	fire_only_once = yes
+	
+	mean_time_to_happen = { days = 3 }
+	option = {
+	    trigger = { NOT = { has_opinion_modifier = { who = A12 modifier = opinion_moeniccia_enemy } } }
+		name = atlantis_A10.1.a #Magnusia won against Moeniccia alone
+		add_stability = 1
+		add_prestige = 25
+		add_legitimacy = 10
+		add_mil_power = 50 
+		add_dip_power = 50 
+		add_adm_power = 50
+		set_country_flag = A10_moeniccia_ended
+		set_country_flag = A10_moeniccia_victory
+	}
+	option = { 
+	    trigger = { has_opinion_modifier = { who = A12 modifier = opinion_moeniccia_enemy } }
+		name = atlantis_A10.1.b #Magnusia won against Moeniccia and Theodosia
+		IF = {
+		limit = { AND = { 3173 = { owned_by = A12 } 3175 = { owned_by = A12 } A12 = { is_at_war = no } } }
+		A12 = { country_event = { id = atlantis_A10.4 } }
+		add_prestige = 25
+		}
+		ELSE = { add_stability = 2 add_legitimacy = 25 add_prestige = 50 add_mil_power = 150 add_dip_power = 150 add_adm_power = 150 }
+		set_country_flag = A10_moeniccia_ended
+		set_country_flag = A10_moeniccia_victory
+	}
+}
+
+country_event = {
+	id = atlantis_A10.2
+	title = atlantis_A10.2.t
+	desc = atlantis_A10.2.d
+	picture = DIPLOMACY_eventPicture
+	
+	major = yes
+	trigger = { 
+	    tag = A10
+	    NOT = { has_country_flag = A10_moeniccia_ended }
+	    is_at_war = NO
+		A7T = {
+		exists = YES
+		NOT = { total_development = 42 }
+		}
+	}
+	fire_only_once = yes
+	
+	mean_time_to_happen = { days = 3 }
+	option = {
+		name = atlantis_A10.2.a #Magnusia signed white peace
+		add_stability = -1 
+		add_prestige = -25
+		add_legitimacy = -25
+		set_country_flag = A10_moeniccia_ended
+		set_country_flag = A10_moeniccia_white
+		3153 = { add_permanent_claim = ROOT } 3165 = { add_permanent_claim = ROOT } 
+	}
+}
+
+country_event = {
+	id = atlantis_A10.3
+	title = atlantis_A10.3.t
+	desc = atlantis_A10.3.d
+	picture = SIEGE_eventPicture
+	
+	major = yes
+	trigger = { 
+	    tag = A10
+	    NOT = { has_country_flag = A10_moeniccia_ended }
+	    is_at_war = NO
+		A7T = { 
+		exists = YES 
+		    num_of_owned_provinces_with = {
+	        value = 8
+	        has_owner_culture = yes
+	        is_overseas = no
+            }
+		}
+	}
+	fire_only_once = yes
+	
+	mean_time_to_happen = { days = 3 }
+	option = {
+		name = atlantis_A10.3.a #Magnusia lost
+		set_country_flag = A10_moeniccia_ended
+		set_country_flag = A10_moeniccia_lost
+		add_stability = -3
+		add_legitimacy = -75
+		add_prestige = -50
+		add_war_exhaustion = 5
+		3170 = { add_core = A18 } 3166 = { add_core = A18 }
+	}
+}
+
+#Theodosia loses Caprera and Novioritum
+country_event = {
+	id = atlantis_A10.4
+	title = "atlantis_A10.4.t"
+	desc = "atlantis_A10.4.d"
+	picture = CULTURE_eventPicture
+	
+	is_triggered_only = yes
+
+	
+	option = {
+		name = "atlantis_A10.4.a" 
+		ai_chance = {
+			factor = 50
+		}
+		3173 = { cede_province = FROM } 3175 = { cede_province = FROM }
+	}
+}
+#SECRET SOL INVICTUS EVENT!!!11
+country_event = {
+	id = atlantis_A10.5
+	title = atlantis_A10.5.t
+	desc = atlantis_A10.5.d
+	picture = WESTERNISATION_eventPicture
+	
+	major = yes
+	trigger = { 
+	    OR = { AND = { tag = ATL was_tag = A10 }  AND = { tag = ATL was_tag = A12 } }
+	    is_at_war = NO
+		ruler_age = 24
+		government = monarchy
+		prestige = 80
+		legitimacy = 95
+		stability = 3
+		adm = 5
+		dip = 5 
+		mil = 5
+		is_monarch_leader = yes
+		OR = { ruler_has_personality = free_thinker_personality ruler_has_personality = inspiring_leader_personality ruler_has_personality = sinner_personality }
+		NOT = { OR = { ruler_has_personality = pious_personality ruler_has_personality = zealot_personality } }
+		OR = { is_excommunicated = yes NOT = { PAP = { has_opinion = { who = ROOT value = -100 } } } NOT = { religion = catholic } }
+		philosopher = 1
+		NOT = { inquisitor = 1 }
+		OR = { full_idea_group = administrative_ideas full_idea_group = aristocracy_ideas }
+		NOT = { full_idea_group = religious_ideas }
+	}
+	fire_only_once = yes
+	
+	mean_time_to_happen = { years = 3 }
+	option = {
+		name = atlantis_A10.5.a #You become pagan
+	    highlight = yes
+		change_religion = sol_invictus
+		capital_scope = { change_religion = sol_invictus }
+		add_stability = -6
+		add_prestige = -100
+		add_harmony = -50
+		remove_country_modifier = counter_reformation
+		remove_country_modifier = the_statue_in_restraint_of_appeals
+		remove_country_modifier = revocation_of_restraint_of_appeals
+		remove_country_modifier = bavarian_jesuits
+		remove_country_modifier = the_societas_jesu
+		remove_country_modifier = the_declaration_of_indulgence
+		remove_country_modifier = de_heretico_comburendo
+		remove_country_modifier = the_conventicle_act
+		hidden_effect = {
+		every_known_country = {
+			limit = {
+				OR = { religion = catholic religion = chalcedonism }
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = opinion_heathen_satanists
+			}
+		}
+		}
+	}
+	option = { 
+		name = atlantis_A10.5.b #This event kills advisor
+		kill_advisor = philosopher
+	}
+}
+
+# Salonae capital
+country_event = {
+	id = atlantis_A10.6
+	title = "atlantis_A10.6.t"
+	desc = "atlantis_A10.6.d"
+	picture = CULTURE_eventPicture
+	
+	is_triggered_only = yes
+
+	major = yes
+	
+	option = {
+		name = "atlantis_A10.6.a" #Move to Salonae
+		ai_chance = {
+			factor = 50
+		}
+		3174 = { add_core = ROOT }
+		set_capital = 3174
+		set_country_flag = A10_salonae_capital
+		swap_non_generic_missions = yes
+	}
+	option = {
+		name = "atlantis_A10.6.b" #Stay in Diocletianopolis
+		ai_chance = {
+			factor = 50
+		}
+		set_country_flag = A10_diocletianopolis_capital
+		swap_non_generic_missions = yes
+	}
+}

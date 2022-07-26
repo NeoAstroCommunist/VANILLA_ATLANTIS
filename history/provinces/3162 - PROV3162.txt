@@ -3,6 +3,7 @@
  add_core = A13
  culture = romancalydnian
  religion = catholic
+ trade_goods = naval_supplies
  is_city = yes
  hre = no
  base_tax = 2

@@ -2,7 +2,7 @@
  controller = A6T
  add_core = A6T
  culture = jendean
- religion = animism
+ religion = hellenic_titan
  trade_goods = gold
  is_city = yes
  hre = no

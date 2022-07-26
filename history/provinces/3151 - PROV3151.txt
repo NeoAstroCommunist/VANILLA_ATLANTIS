@@ -5,6 +5,7 @@
  add_core = A14
  culture = thynian
  religion = catholic
+ trade_goods = grain
  is_city = yes
  hre = no
  base_tax = 1

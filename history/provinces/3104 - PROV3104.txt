@@ -3,6 +3,7 @@
  add_core = AT3
  culture = thesrutian
  religion = sunni
+ trade_goods = grain
  is_city = yes
  hre = no
  fort_15th = yes

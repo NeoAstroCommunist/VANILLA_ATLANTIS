@@ -1,0 +1,390 @@
+namespace = atlantis_A11
+
+country_event = {
+	id = atlantis_A11.1
+	title = atlantis_A11.1.t
+	desc = atlantis_A11.1.d
+	picture = RELIGIOUS_WARS_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = atlantis_A11.1.a #Surrender Caprera
+		A11 = { country_event = { id = atlantis_A11.3 } }
+		3173 = {
+			cede_province = A11
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				A11 = { has_country_flag = A11_pope_buddy }
+			}
+			modifier = {
+				factor = 1.5
+				military_strength = {
+	            who = A11 
+	            value = 0.5
+                }
+			}
+			modifier = {
+				factor = 1.5
+				military_strength = {
+	            who = A11 
+	            value = 0.75
+                }
+			}
+			modifier = {
+				factor = 1.5
+				military_strength = {
+	            who = A11 
+	            value = 1
+                }
+			}
+			modifier = {
+				factor = 1.5
+				is_at_war = yes
+			}
+		}
+	}
+	option = {
+		name = atlantis_A11.1.b #War
+		A11 = { country_event = { id = atlantis_A11.2 days = 5 } }
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 1.5
+				A11 = { has_country_flag = A11_stands_alone }
+			}
+			modifier = {
+				factor = 1.5
+				A11 = { has_country_flag = A11_stands_alone }
+			}
+			modifier = {
+				factor = 1.5
+				military_strength = {
+	            who = A11 
+	            value = 2
+                }
+			}
+			modifier = {
+				factor = 2
+				military_strength = {
+	            who = A11 
+	            value = 3
+                }
+			}
+		}
+	}
+}
+
+# The Surrender of Maine. I did it again.
+country_event = {
+	id = atlantis_A11.2
+	title = "atlantis_A11.2.t"
+	desc = "atlantis_A11.2.d"
+	picture = SIEGE_eventPicture
+	
+	is_triggered_only = yes
+
+	major = yes
+	
+	option = {
+		name = "atlantis_A11.2.a" #War
+		ai_chance = {
+			factor = 100 
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_any_disaster = yes
+			}
+		}
+		FROM = {
+			declare_war_with_cb = {
+				who = A11
+				casus_belli = cb_caprera_war
+			}
+		}
+		3173 = {
+			change_controller = A11
+		}
+	}
+	option = {
+		name = "atlantis_A11.2.b" #Really?
+		ai_chance = {
+			factor = 1
+		}
+		add_prestige = -10
+		add_republican_tradition = -50
+		FROM = {
+			add_truce_with = ROOT
+		}
+		add_truce_with = FROM
+		if = {
+			limit = {
+				has_estate = estate_nobles
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = -10
+			}
+		}
+	}
+}
+
+# The Surrender of Maine ripoff... AGAIN?
+country_event = {
+	id = atlantis_A11.3
+	title = "atlantis_A11.3.t"
+	desc = "atlantis_A11.3.d"
+	picture = SIEGE_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = "atlantis_A11.3.a" #
+		add_prestige = 10
+		hidden_effect = {
+			FROM = {
+				add_truce_with = ROOT
+			}
+		}
+		add_truce_with = FROM
+	}
+}
+#Oceania Vassal
+country_event = {
+	id = atlantis_A11.4
+	title = atlantis_A11.4.t
+	desc = atlantis_A11.4.d
+	picture = RELIGIOUS_WARS_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	option = {
+		name = atlantis_A11.4.a #Vassal
+		A11 = { country_event = { id = atlantis_A11.6 } }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				military_strength = {
+	            who = A11 
+	            value = 0.5
+                }
+			}
+			modifier = {
+				factor = 1.5
+				military_strength = {
+	            who = A11 
+	            value = 0.75
+                }
+			}
+			modifier = {
+				factor = 1.5
+				is_at_war = yes
+			}
+		}
+	}
+	option = {
+		name = atlantis_A11.4.b #No vassal
+		A11 = { country_event = { id = atlantis_A11.5 days = 5 } }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				military_strength = {
+	            who = A11 
+	            value = 1
+                }
+			}
+			modifier = {
+				factor = 1.5
+				A11 = { is_at_war = yes }
+			}
+			modifier = {
+				factor = 1.5
+				military_strength = {
+	            who = A11 
+	            value = 2
+                }
+			}
+		}
+	}
+}
+
+# Yes, this is Surrender of Maine, but different.
+country_event = {
+	id = atlantis_A11.5
+	title = "atlantis_A11.5.t"
+	desc = "atlantis_A11.5.d"
+	picture = SIEGE_eventPicture
+	
+	is_triggered_only = yes
+
+	major = yes
+	
+	option = {
+		name = "atlantis_A11.5.a" #CB
+		add_casus_belli = {
+        target = A13
+        type = cb_vassalize_mission
+        months = 24
+        }
+	}
+}
+
+country_event = {
+	id = atlantis_A11.6
+	title = "atlantis_A11.6.t"
+	desc = "atlantis_A11.6.d"
+	picture = SIEGE_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = "atlantis_A11.6.a" #
+		add_prestige = 10
+		vassalize = A13
+	}
+}
+
+country_event = {
+	id = atlantis_A11.7
+	title = "atlantis_A11.7.t"
+	desc = "atlantis_A11.7.d"
+	picture = SIEGE_eventPicture
+	
+	major = yes
+	trigger = {
+	    AND = {
+		OR = {
+		tag = A11
+		was_tag = A11
+		}
+		has_country_flag = A11_heretic
+		NOT = { has_country_flag = A11_messalians_growing }
+		}
+	}
+    fire_only_once = yes
+	option = {
+		name = "atlantis_A11.7.a" #
+		change_religion = hussite
+		add_stability = -1
+		add_prestige = -100
+		remove_country_modifier = counter_reformation
+		remove_country_modifier = the_statue_in_restraint_of_appeals
+		remove_country_modifier = revocation_of_restraint_of_appeals
+		remove_country_modifier = bavarian_jesuits
+		remove_country_modifier = the_societas_jesu
+		remove_country_modifier = the_declaration_of_indulgence
+		remove_country_modifier = de_heretico_comburendo
+		remove_country_modifier = the_conventicle_act
+		add_country_modifier = {
+			name = "conversion_zeal"
+			duration = 3650
+		}
+		every_known_country = {
+			limit = {
+				reverse_has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_demote_pope
+				}
+			}
+			reverse_remove_opinion = {
+				who = ROOT
+				modifier = opinion_demote_pope
+			}
+		}
+	}
+}
+
+country_event = {
+	id = atlantis_A11.8
+	title = "atlantis_A11.8.t"
+	desc = "atlantis_A11.8.d"
+	picture = SIEGE_eventPicture
+	
+	major = yes
+	trigger = {
+	    AND = {
+		OR = {
+		tag = A11
+		was_tag = A11
+		}
+		has_country_flag = A11_heretic
+		has_country_flag = A11_messalians_growing
+		}
+	}
+    fire_only_once = yes
+	option = {
+		name = "atlantis_A11.8.a" #
+	    highlight = yes
+		change_religion = messalian
+		add_stability = -6
+		add_prestige = -100
+		change_government_to_theocracy = yes
+		add_government_reform = leading_clergy_reform
+		remove_country_modifier = counter_reformation
+		remove_country_modifier = the_statue_in_restraint_of_appeals
+		remove_country_modifier = revocation_of_restraint_of_appeals
+		remove_country_modifier = bavarian_jesuits
+		remove_country_modifier = the_societas_jesu
+		remove_country_modifier = the_declaration_of_indulgence
+		remove_country_modifier = de_heretico_comburendo
+		remove_country_modifier = the_conventicle_act
+		kill_ruler = yes
+		add_country_modifier = {
+			name = "conversion_zeal"
+			duration = 3650
+		}
+		hidden_effect = {
+		every_known_country = {
+			limit = {
+				OR = { religion = catholic religion = chalcedonism }
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = opinion_heretic_satanists
+			}
+		}
+		}
+	}
+}
+
+country_event = {
+	id = atlantis_A11.9
+	title = "atlantis_A11.9.t"
+	desc = "atlantis_A11.9.d"
+	picture = SIEGE_eventPicture
+	
+	major = yes
+	trigger = {
+		tag = A11
+	}
+    fire_only_once = yes
+	mean_time_to_happen = { years = 5 }
+	option = {
+		name = "atlantis_A11.9.a" #
+		add_stability = -1
+		add_manpower = -5
+	    add_prestige = 20
+		add_republican_tradition = 25
+		add_papal_influence = 25
+	}
+	option = {
+		name = "atlantis_A11.9.b" #
+	    set_country_flag = A11_messalians_growing
+	}
+}

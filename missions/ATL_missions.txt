@@ -1,0 +1,568 @@
+ATL_slot_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = ATL
+	}
+
+	ATL_legio = {
+		icon = mission_build_up_to_force_limit
+		position = 14
+		required_missions = { ATL_moeniccia }
+		trigger = {  
+		    AND = {
+			A8T = { OR = { exists = no vassal_of = ROOT } }
+		    3117 = { country_or_non_sovereign_subject_holds = ROOT }
+		    3118 = { country_or_non_sovereign_subject_holds = ROOT }
+			3119 = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+		effect = { 
+		    3113 = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT } 3114 = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT } 3115 = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT } 
+		    atlantean_east_coast_area = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT } atlantean_eastcentral_area = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT }
+		}
+	}
+	ATL_zalotoga = {
+		icon = mission_build_up_to_force_limit
+		position = 16
+		required_missions = { ATL_legio }
+		trigger = { 
+		    3113 = { country_or_non_sovereign_subject_holds = ROOT }
+		    3114 = { country_or_non_sovereign_subject_holds = ROOT }
+			3115 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {  
+		    if = { limit = { 3115 = { culture = jendean owned_by = ATL } } country_event = { id = atlantis_ATL.1 } } else = { add_army_tradition = 20 }
+		}
+	}
+	ATL_legio_order = {
+		icon = mission_build_up_to_force_limit
+		position = 23
+		required_missions = { ATL_religion_2 }
+		trigger = { completed_mission = ATL_legio army_size = 40 OR = { army_professionalism = 20 completed_ideas = quality_ideas } 3117 = { country_or_non_sovereign_subject_holds = ROOT has_building = barracks NOT = { local_autonomy = 15 } } 3118 = { country_or_non_sovereign_subject_holds = ROOT has_building = barracks NOT = { local_autonomy = 15 } } 3119 = { country_or_non_sovereign_subject_holds = ROOT has_building = barracks NOT = { local_autonomy = 15 } } }
+		effect = { 
+        	add_country_modifier = {
+				name = ATL_legio_training
+				duration = 7300
+			}
+			if = { 
+				limit = { has_dlc = "Cradle of Civilization" } 
+				add_army_professionalism = 0.05
+			}
+			else = { add_army_tradition = 10 }
+		}
+	}
+	ATL_iron_mines = {
+		icon = mission_build_up_to_force_limit
+		position = 25
+		required_missions = {  }
+		trigger = {
+        	AND = {
+			    3093 = { country_or_non_sovereign_subject_holds = ROOT }
+				3106 = { country_or_non_sovereign_subject_holds = ROOT }
+				3215 = { country_or_non_sovereign_subject_holds = ROOT }
+				3179 = { country_or_non_sovereign_subject_holds = ROOT }
+				3149 = { country_or_non_sovereign_subject_holds = ROOT }
+				custom_trigger_tooltip = {
+				    tooltip = ATL_iron_tooltip
+				    development_in_provinces = {
+					    OR = {
+						    province_id = 3093
+						    province_id = 3106
+						    province_id = 3215
+							province_id = 3179
+							province_id = 3149
+					    }
+					    value = 80
+				    }
+			    }
+			}
+		}
+		effect = {
+            IF = {	
+                limit = { 3179 = { has_province_modifier = A12_iron_buff } }			
+        	    random_owned_province = {
+			   	    limit = {
+				        superregion = atlantis_superregion
+					    trade_goods = iron
+					    NOT = { has_province_modifier = A12_iron_buff }
+				    }
+				    add_province_modifier = {
+					    name = A12_iron_buff
+					    duration = -1
+				    }
+			    }
+				add_country_modifier = { name = ATL_iron_double duration = 3650 }
+			}
+			ELSE = {	
+                limit = { 3179 = { has_province_modifier = A12_iron_buff } }			
+        	    random_owned_province = {
+			   	    limit = {
+				        superregion = atlantis_superregion
+					    trade_goods = iron
+				    }
+				    add_province_modifier = {
+					    name = A12_iron_buff
+					    duration = -1
+				    }
+			    }
+			}
+		}
+	}
+	ATL_prototype_weapon = {
+		icon = mission_build_up_to_force_limit
+		position = 26
+		required_missions = { ATL_iron_mines }
+		trigger = { }
+		effect = { }
+	}
+	ATL_infantry_armor = {
+		icon = mission_build_up_to_force_limit
+		position = 27
+		required_missions = { ATL_prototype_weapon }
+		trigger = { }
+		effect = { }
+	}
+}
+
+ATL_slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = ATL
+	}
+
+	ATL_way_1 = {
+		icon = mission_build_up_to_force_limit
+		position = 11
+		required_missions = {  }
+		trigger = {  
+			if = {
+			limit = { has_estate = estate_church }
+			    religious_unity = 0.95
+			    OR = { theologian = 1 inquisitor = 1 }
+				num_of_estate_agendas_completed = {
+					estate = estate_church
+					value = 2
+				}
+				estate_loyalty = {
+					estate = estate_church
+					loyalty = 60 
+				}
+			}
+			else = {
+			    religious_unity = 0.95
+			    OR = { theologian = 1 inquisitor = 1 }
+				num_of_owned_provinces_with = {
+					OR = { 
+						has_building = temple 
+						has_building = cathedral
+					}
+					value = 10 
+				}
+			}
+		}
+		effect = { add_dip = 100 add_estate_loyalty = { estate = estate_church loyalty = 15 } }
+	}
+	ATL_moeniccia = {
+		icon = mission_build_up_to_force_limit
+		position = 13
+		required_missions = { ATL_way_final }
+		trigger = {  
+		    atlantean_real_northwest_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
+			atlantean_north_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
+			3120 = { country_or_non_sovereign_subject_holds = ROOT }
+			3121 = { country_or_non_sovereign_subject_holds = ROOT }
+			3123 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = { IF = { limit = { AND = { A7T = { junior_union_with = ROOT } } } add_country_modifier = { name = ATL_moeniccia_integration duration = 10950 } 3117 = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT } 3118 = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT } 3119 = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT } } ELSE = { add_mil_power = 100 3117 = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT } 3118 = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT } 3119 = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT } } }
+	}
+	ATL_galatia = {
+		icon = mission_build_up_to_force_limit
+		position = 15
+		required_missions = { ATL_legio }
+		trigger = { 
+		    atlantean_east_coast_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
+			atlantean_eastcentral_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = { atlantean_east_area = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT } }
+	}
+	ATL_thesrut = {
+		icon = mission_build_up_to_force_limit
+		position = 17
+		required_missions = { ATL_galatia ATL_zalotoga }
+		trigger = { 
+		    atlantean_east_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = { add_country_modifier = { name = ATL_thesrut duration = 3650 } }
+	}
+	ATL_religion_1 = {
+		icon = mission_build_up_to_force_limit
+		position = 21
+		required_missions = {  }
+		trigger = { }
+		effect = { }
+	}
+	ATL_religion_2 = {
+		icon = mission_build_up_to_force_limit
+		position = 22
+		required_missions = { ATL_religion_1 }
+		trigger = { }
+		effect = { }
+	}
+	ATL_religion_dev = {
+		icon = mission_build_up_to_force_limit
+		position = 23
+		required_missions = { ATL_religion_2 }
+		trigger = { }
+		effect = { }
+	}
+	ATL_converting_continent = {
+		icon = mission_build_up_to_force_limit
+		position = 24
+		required_missions = { ATL_religion_dev ATL_legio_order }
+		trigger = { }
+		effect = { }
+	}
+	ATL_weapon_production = {
+		icon = mission_build_up_to_force_limit
+		position = 26
+		required_missions = { ATL_iron_mines }
+		trigger = { }
+		effect = { }
+	}
+}
+
+ATL_slot_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = ATL
+	}
+	ATL_way_2 = {
+		icon = mission_build_up_to_force_limit
+		position = 11
+		required_missions = {  }
+		trigger = {  
+			if = {
+			limit = { has_estate = estate_nobles }
+			    army_size_percentage = 0.8
+				num_of_estate_agendas_completed = {
+					estate = estate_nobles
+					value = 2
+				}
+				estate_loyalty = {
+					estate = estate_nobles 
+					loyalty = 60 
+				}
+			}
+			else = {
+			    army_size_percentage = 0.8
+				num_of_owned_provinces_with = {
+					OR = { 
+						has_building = barracks 
+						has_building = training_fields
+					}
+					value = 10 
+				}
+			}
+		}
+		effect = { add_mil_power = 100 add_estate_loyalty = { estate = estate_nobles loyalty = 15 } }
+	}
+	ATL_way_final = {
+		icon = mission_build_up_to_force_limit
+		position = 12
+		required_missions = { ATL_way_1 ATL_way_2 ATL_way_3 }
+		trigger = { NOT = { average_unrest = 0 } NOT = { num_of_rebel_armies = 1 } stability = 1  }
+		effect = { country_event = { id = atlantis_ATL.8 } }
+	}
+	ATL_thynland_1 = {
+		icon = mission_build_up_to_force_limit
+		position = 13
+		required_missions = { ATL_way_final }
+		trigger = { 
+		    atlantean_march_east_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
+			atlantean_march_west_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = { atlantean_vikings_peninsula_area = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT } atlantean_vikings_islands_area = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT } }
+	}
+	ATL_thynland_2 = {
+		icon = mission_build_up_to_force_limit
+		position = 14
+		required_missions = { ATL_thynland_1 }
+		trigger = { 
+			atlantean_vikings_peninsula_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
+			atlantean_vikings_islands_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = { country_event = { id = atlantis_ATL.2 } }
+	}
+	ATL_qde = {
+		icon = mission_build_up_to_force_limit
+		position = 16
+		required_missions = { ATL_phoenicia }
+		trigger = { 3199 = { OR = { AND = { NOT = { is_core = ROOT } owned_by = ROOT has_ruler_leader_from = ROOT infantry_in_province = 15 } AND = { is_core = ROOT owned_by = ROOT } } } }
+		effect = { 
+		IF = { limit = { 3199 = { NOT = { is_core = ROOT } owned_by = ROOT } } country_event = { id = atlantis_ATL.3 } }
+		ELSE = { add_prestige = 25 add_dip_power = 100 }
+		}
+	}
+	ATL_crusade_preparations = {
+		icon = mission_build_up_to_force_limit
+		position = 18
+		required_missions = { ATL_finisia ATL_thesrut }
+		trigger = { }
+		effect = { }
+	}
+	ATL_alfiniqia = {
+		icon = mission_build_up_to_force_limit
+		position = 19
+		required_missions = { ATL_crusade_preparations }
+		trigger = { south_atlantis_region = { type = all country_or_non_sovereign_subject_holds = ROOT } }
+		effect = { add_country_modifier = { name = ATL_finiqia_conquered duration = 7300 } }
+	}
+	ATL_great_project_capital = {
+		icon = mission_build_up_to_force_limit
+		position = 23
+		required_missions = { ATL_religion_2 ATL_tech_2 }
+		trigger = { 
+		    OR = {
+			    AND = {
+		        3174 = { is_capital = yes }
+				treasury = 2000 workshop = 10
+				OR = { grand_captain = 1 naval_reformer = 1 }
+		        }
+			    AND = {
+		        3152 = { is_capital = yes }
+				treasury = 2000 workshop = 10
+				OR = { army_organiser = 1 commandant = 1 }
+		        }
+				AND = {
+		        3181 = { is_capital = yes }
+				treasury = 2000 workshop = 10
+				OR = { theologian = 1 inquisitor = 1 }
+		        }
+		    }
+		}
+		effect = { country_event = { id = atlantis_ATL.4 } }
+	}
+	ATL_great_project_bigger = {
+		icon = mission_build_up_to_force_limit
+		position = 25
+		required_missions = { ATL_converting_continent ATL_pump_capital }
+		trigger = { 
+			OR = {
+				3152 = {
+					OR = {
+						has_great_project = {
+							type = atlantis_colosseum
+							tier = 2 
+						}
+						has_great_project = {
+							type = atlantis_colosseum
+							tier = 3 
+						}
+					}
+				}
+				3174 = {
+					OR = {
+						has_great_project = {
+							type = atlantis_harbour
+							tier = 2 
+						}
+						has_great_project = {
+							type = atlantis_harbour
+							tier = 3 
+						}
+					}
+				}
+				3181 = {
+					OR = {
+						has_great_project = {
+							type = atlantis_senate
+							tier = 2 
+						}
+						has_great_project = {
+							type = atlantis_senate
+							tier = 3 
+						}
+					}
+				}
+			}
+		}
+		effect = { add_country_modifier = { name = ATL_great_project_bigger duration = -1 } }
+	}
+	ATL_final_dev = {
+		icon = mission_build_up_to_force_limit
+		position = 27
+		required_missions = { ATL_industrialisation ATL_great_project_bigger ATL_weapon_production }
+		trigger = { }
+		effect = { }
+	}
+}
+
+ATL_slot_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = ATL
+	}
+
+	ATL_way_3 = {
+		icon = mission_build_up_to_force_limit
+		position = 11
+		required_missions = {  }
+		trigger = { 
+			if = {
+			limit = { has_estate = estate_burghers }
+			    years_of_income = 3
+				num_of_estate_agendas_completed = {
+					estate = estate_burghers
+					value = 2
+				}
+				estate_loyalty = {
+					estate = estate_burghers
+					loyalty = 60 
+				}
+			}
+			else = {
+			    years_of_income = 3
+				num_of_owned_provinces_with = {
+					OR = { 
+						has_building = marketplace 
+						has_building = trade_depot
+						has_building = stock_exchange
+					}
+					value = 10 
+				}
+			}
+		}
+		effect = { add_adm_power = 100 add_estate_loyalty = { estate = estate_burghers loyalty = 15 } }
+	}
+	ATL_knaan = {
+		icon = mission_build_up_to_force_limit
+		position = 13
+		required_missions = { ATL_way_final }
+		trigger = { 
+		    atlantean_highlands_north_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
+			atlantean_lowlands_west_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {  
+		    atlantean_highlands_east_area = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT }
+		    atlantean_highlands_west_area = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT }
+		}
+	}
+	ATL_phoenicia = {
+		icon = mission_build_up_to_force_limit
+		position = 15
+		required_missions = { ATL_highlands }
+		trigger = { 
+		    atlantean_horn_north_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
+		    atlantean_horn_south_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = { country_event = { id = atlantis_ATL.5 } }
+	}
+	ATL_finisia = {
+		icon = mission_build_up_to_force_limit
+		position = 17
+		required_missions = { ATL_barqaqart ATL_phoenicia }
+		trigger = { atlantean_lowlands_southeast_area = { type = all country_or_non_sovereign_subject_holds = ROOT } }
+		effect = { 3218 = { add_province_modifier = { name = ATL_kasywbya_fort duration = 7300 } } }
+	}
+	ATL_tech_1 = {
+		icon = mission_build_up_to_force_limit
+		position = 21
+		required_missions = {  }
+		trigger = { }
+		effect = { }
+	}
+	ATL_tech_2 = {
+		icon = mission_build_up_to_force_limit
+		position = 22
+		required_missions = { ATL_tech_1 }
+		trigger = { }
+		effect = { }
+	}
+	ATL_industry_1 = {
+		icon = mission_build_up_to_force_limit
+		position = 23
+		required_missions = { ATL_tech_2 }
+		trigger = { }
+		effect = { }
+	}
+	ATL_industry_2 = {
+		icon = mission_build_up_to_force_limit
+		position = 24
+		required_missions = { ATL_industry_1 }
+		trigger = { }
+		effect = { }
+	}
+	ATL_developed_nation = {
+		icon = mission_build_up_to_force_limit
+		position = 26
+		required_missions = { ATL_tech_4 ATL_industry_2 }
+		trigger = { }
+		effect = { }
+	}
+}
+
+ATL_slot_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = ATL
+	}
+	ATL_highlands = {
+		icon = mission_build_up_to_force_limit
+		position = 14
+		required_missions = { ATL_knaan }
+		trigger = {
+		    atlantean_highlands_east_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
+            atlantean_highlands_west_area = { type = all country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {  
+			atlantean_horn_north_area = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT }
+			atlantean_horn_south_area = { limit = { NOT = { owned_by = ROOT } NOT = { is_core = ROOT } is_empty = no } add_permanent_claim = ROOT }
+		}
+	}
+	ATL_barqaqart = {
+		icon = mission_build_up_to_force_limit
+		position = 16
+		required_missions = { ATL_highlands }
+		trigger = { }
+		effect = { }
+	}
+	ATL_tech_3 = {
+		icon = mission_build_up_to_force_limit
+		position = 23
+		required_missions = { ATL_tech_2 }
+		trigger = { }
+		effect = { }
+	}
+	ATL_tech_4 = {
+		icon = mission_build_up_to_force_limit
+		position = 25
+		required_missions = { ATL_tech_3 }
+		trigger = { }
+		effect = { }
+	}
+	ATL_dev_country_1 = {
+		icon = mission_build_up_to_force_limit
+		position = 26
+		required_missions = { ATL_tech_4 }
+		trigger = { }
+		effect = { }
+	}
+	ATL_dev_country_2 = {
+		icon = mission_build_up_to_force_limit
+		position = 27
+		required_missions = { ATL_dev_country_1 }
+		trigger = { }
+		effect = { }
+	}
+}
+

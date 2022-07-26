@@ -1,0 +1,201 @@
+namespace = atlantis_ATL
+
+country_event = {
+	id = atlantis_ATL.1
+	title = atlantis_ATL.1.t
+	desc = atlantis_ATL.1.d
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = atlantis_ATL.1.a #Create Atlantian march
+        3115 = { add_core = ATM }
+		release = ATM
+		ATM = {
+			change_government = republic
+			add_government_reform = noble_elite_reform
+			adopt_reform_progress = ROOT
+			add_republican_tradition = 50
+			change_religion = ROOT
+			change_primary_culture = jendean
+			define_ruler = {
+				name = "Balkar Suphannaphum" 
+				culture = jendean
+				adm = 1
+				dip = 1
+				mil = 5
+			}
+		}
+		create_march = ATM
+		ATM = { add_historical_friend = ROOT }
+		add_historical_friend = ATM
+		ai_chance = {
+			factor = 50
+		}
+	}
+	option = {
+		name = atlantis_ATL.1.b
+		ai_chance = {
+			factor = 50
+		}
+	}
+}
+
+# Flavour event for conquering Thynland + explorer
+country_event = {
+	id = atlantis_ATL.2
+	title = "atlantis_ATL.2.t"
+	desc = "atlantis_ATL.2.d"
+	picture = SHIP_SAILING_eventPicture
+	is_triggered_only = yes
+
+	major = yes
+	
+	option = {
+		name = "atlantis_ATL.2.a" #Move to Salonae
+		create_explorer = { tradition = 50 }
+	}
+}
+
+# Carthage destruction event
+country_event = {
+	id = atlantis_ATL.3
+	title = "atlantis_ATL.3.t"
+	desc = "atlantis_ATL.3.d"
+	picture = COUNTRY_COLLAPSE_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = "atlantis_ATL.3.a" #
+		3199 = { add_devastation = 100 add_province_modifier = { name = ATL_salted_carthage duration = 3650 } }
+		add_prestige = 50
+		add_adm_power = 100
+		add_mil_power = 100
+	    add_treasury = 1000
+		every_known_country = {
+			limit = {
+				culture_group = atlantopunic
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = opinion_burnt_carthage
+			}
+		}
+	}
+}
+
+country_event = {
+	id = atlantis_ATL.4
+	title = "atlantis_ATL.4.t"
+	desc = "atlantis_ATL.4.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = "atlantis_ATL.4.a" #
+		trigger = { 3152 = { is_capital = yes } }
+	    add_treasury = -1000
+		add_great_project = {
+        type = atlantis_colosseum
+        instant = no 
+        }
+	}
+	option = {
+		name = "atlantis_ATL.4.b" #
+		trigger = { 3174 = { is_capital = yes } }
+	    add_treasury = -1000
+		add_great_project = {
+        type = atlantis_harbour
+        instant = no 
+        }
+	}
+	option = {
+		name = "atlantis_ATL.4.c" #
+		trigger = { 3181 = { is_capital = yes } }
+	    add_treasury = -1000
+		add_great_project = {
+        type = atlantis_senate
+        instant = no 
+        }
+	}
+}
+
+country_event = {
+	id = atlantis_ATL.5
+	title = "atlantis_ATL.5.t"
+	desc = "atlantis_ATL.5.d"
+	picture = COUNTRY_COLLAPSE_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+
+	option = {
+		name = "atlantis_ATL.5.a" #
+	}
+	option = {
+		name = "atlantis_ATL.5.b" #
+	}
+}
+
+country_event = {
+	id = atlantis_ATL.6
+	title = "atlantis_ATL.6.t"
+	desc = "atlantis_ATL.6.d"
+	picture = DWARF_eventPicture
+	
+	trigger = { AND = { completed_mission = A12_copper_mine 3179 = { AND = { development = 20 owned_by = ROOT } } } }
+	fire_only_once = yes
+    mean_time_to_happen = { years = 30 }
+	option = {
+		name = "atlantis_ATL.6.a" #Dwarfs?
+		3179 = { dwarf_unit = A12 }
+		define_general = {
+		name = "Kragarun Powderkeg"
+        shock = 4
+        fire = 0
+        manuever = 0
+        siege = 6
+        }
+		set_country_flag = A12_dug_too_deep
+	}
+}
+
+country_event = {
+	id = atlantis_ATL.7
+	title = atlantis_ATL.7.t
+	desc = atlantis_ATL.7.d
+
+	picture = DWARF_eventPicture
+	
+	trigger = { AND = { has_country_flag = A12_dug_too_deep OR = { tag = A12 tag = ATL } } }
+	major = yes
+	mean_time_to_happen = { years = 3 }
+	option = {
+		name = atlantis_ATL.7.a
+		every_province = {
+		limit = {
+		num_of_units_in_province = {
+        type = dwarf_unit
+        amount = 1
+        }
+		}
+        kill_units = {
+		who = owner
+		type = dwarf_unit
+        }
+		}
+		kill_leader = {
+        type = "Kragarun Powderkeg"
+        }
+		clr_country_flag = A12_dug_too_deep
+	}
+}

@@ -5,6 +5,7 @@
  add_claim = A7T
  culture = dardanian
  religion = catholic
+ trade_goods = livestock
  is_city = yes
  hre = no
  base_tax = 3
